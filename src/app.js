@@ -3,6 +3,9 @@ const app = express();
 
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  res.send("SERVER IS WORKING 🚀");
+});
 // routes
 const patientRoutes = require("./routes/patientRoutes");
 
