@@ -5,7 +5,11 @@ app.use(express.json());
 
 // routes
 const therapistRoutes = require("./routes/therapistRoutes");
+const sessionRoutes = require("./routes/sessionRoutes");
+
+
 app.use("/therapists", therapistRoutes);
+app.use("/sessions", sessionRoutes);
 
 
 // test route
