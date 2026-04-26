@@ -1,9 +1,14 @@
-require("dotenv").config();
-const app = require("./src/app");
+const { sequelize } = require("./src/models");
 
-const PORT = process.env.PORT || 3000;
+(async () => {
+  try {
+    await sequelize.authenticate();
+    console.log("DB connected");
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+    await sequelize.sync({ alter: true });
+    console.log("Tables created");
 
+  } catch (err) {
+    console.error("DB error:", err);
+  }
+})();
