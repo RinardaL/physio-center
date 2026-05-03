@@ -1,38 +1,98 @@
-.App {
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: #f6f1eb;
+}
+
+/* container */
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  background: #fffaf6;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* title */
+h2 {
+  color: #6b4f4f;
   text-align: center;
+  margin-bottom: 20px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* form */
+form {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #e5d5c5;
+  border-radius: 10px;
+  outline: none;
+  background: #fff;
+}
+
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* primary button */
+button[type="submit"] {
+  background: #c9a27e;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+button[type="submit"]:hover {
+  background: #b88c6b;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+th {
+  background: #e7d7c9;
+  padding: 12px;
+  color: #5a4a42;
+}
+
+td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #f0e6dd;
+}
+
+/* buttons */
+td button {
+  margin: 0 3px;
+  background: #d8c3a5;
+  color: white;
+}
+
+td button:hover {
+  background: #b89a7a;
+}
+
+/* delete */
+td button:last-child {
+  background: #c97c7c;
+}
+
+td button:last-child:hover {
+  background: #b65f5f;
 }
