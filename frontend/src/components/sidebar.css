@@ -1,0 +1,27 @@
+.sidebar {
+  width: 220px;
+  height: 100vh;
+  background: #f3e8df;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.logo {
+  margin-bottom: 20px;
+  color: #6b4f4f;
+}
+
+.link {
+  text-decoration: none;
+  color: #5a4a42;
+  padding: 10px;
+  border-radius: 10px;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.link:hover {
+  background: #e7d7c9;
+}
