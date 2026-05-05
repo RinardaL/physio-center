@@ -14,6 +14,7 @@ const clinicalAssessmentRoutes = require("./routes/clinicalAssessmentRoutes");
 const equipmentRoutes = require("./routes/equipmentRoutes");
 const patientRoutes = require("./routes/patientRoutes");
 const treatmentRoutes = require("./routes/treatmentRoutes");
+const treatmentPlanRoutes = require("./routes/treatmentPlanRoutes");
 
 app.use("/therapists", therapistRoutes);
 app.use("/sessions", sessionRoutes);
@@ -22,6 +23,8 @@ app.use("/assessments", clinicalAssessmentRoutes);
 app.use("/equipment", equipmentRoutes);
 app.use("/patients", patientRoutes);
 app.use("/treatments", treatmentRoutes);
+app.use("/treatment-plans", treatmentPlanRoutes);
+
 
 // test route
 app.get("/", (req, res) => {
