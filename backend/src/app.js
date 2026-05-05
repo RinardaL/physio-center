@@ -12,16 +12,18 @@ const sessionRoutes = require("./routes/sessionRoutes");
 const exerciseRoutes = require("./routes/exerciseRoutes");
 const clinicalAssessmentRoutes = require("./routes/clinicalAssessmentRoutes");
 const equipmentRoutes = require("./routes/equipmentRoutes");
+const patientRoutes = require("./routes/patientRoutes");
 
 app.use("/therapists", therapistRoutes);
 app.use("/sessions", sessionRoutes);
 app.use("/exercises", exerciseRoutes);
 app.use("/assessments", clinicalAssessmentRoutes);
 app.use("/equipment", equipmentRoutes);
+app.use("/patients", patientRoutes);
 
 // test route
 app.get("/", (req, res) => {
-  res.send("SERVER IS WORKING 🚀");
+  res.send("SERVER IS WORKING");
 });
 
 // error handler
