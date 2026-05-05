@@ -3,8 +3,10 @@ const sequelize = require("../config/db");
 const { DataTypes } = require("sequelize");
 
 const Patient = require("./patientModel")(sequelize, DataTypes);
+const Treatment = require("./treatmentModel")(sequelize, DataTypes);
 
 module.exports = {
   sequelize,
   Patient,
+  Treatment,
 };
