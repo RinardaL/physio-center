@@ -15,6 +15,9 @@ const equipmentRoutes = require("./routes/equipmentRoutes");
 const patientRoutes = require("./routes/patientRoutes");
 const treatmentRoutes = require("./routes/treatmentRoutes");
 const treatmentPlanRoutes = require("./routes/treatmentPlanRoutes");
+const exercisePlanRoutes = require("./routes/exercisePlanRoutes");
+const paymentRoutes = require("./routes/paymentRoutes");
+
 
 app.use("/therapists", therapistRoutes);
 app.use("/sessions", sessionRoutes);
@@ -24,6 +27,8 @@ app.use("/equipment", equipmentRoutes);
 app.use("/patients", patientRoutes);
 app.use("/treatments", treatmentRoutes);
 app.use("/treatment-plans", treatmentPlanRoutes);
+app.use("/exercise-plans", exercisePlanRoutes);
+app.use("/payments", paymentRoutes);
 
 
 // test route
