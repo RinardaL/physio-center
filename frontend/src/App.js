@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useState } from "react";
 
 import Sidebar from "./components/Sidebar";
 import Dashboard from "./pages/Dashboard";
@@ -9,9 +10,25 @@ import Equipment from "./pages/Equipment";
 import Assessments from "./pages/Assessments";
 
 export default function App() {
+  const [darkMode, setDarkMode] = useState(false);
+
   return (
     <BrowserRouter>
-      <div style={{ display: "flex" }}>
+      <div className={darkMode ? "app dark" : "app"} style={{ display: "flex" }}>
+        
+        <button
+          onClick={() => setDarkMode(!darkMode)}
+          style={{
+            position: "absolute",
+            top: "10px",
+            right: "10px",
+            padding: "8px 12px",
+            cursor: "pointer",
+          }}
+        >
+          {darkMode ? "Light Mode ☀️" : "Dark Mode 🌙"}
+        </button>
+
         <Sidebar />
 
         <div style={{ marginLeft: "220px", padding: "20px", width: "100%" }}>

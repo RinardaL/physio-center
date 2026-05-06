@@ -1,5 +1,15 @@
 import { useEffect, useState } from "react";
 import api from "../api";
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  Tooltip,
+  CartesianGrid,
+  ResponsiveContainer,
+} from "recharts";
+
 import "./dashboard.css";
 
 export default function Dashboard() {
@@ -9,8 +19,11 @@ export default function Dashboard() {
     exercises: 0,
   });
 
+  const [sessionsData, setSessionsData] = useState([]);
+
   useEffect(() => {
     loadStats();
+    loadChart();
   }, []);
 
   const loadStats = async () => {
@@ -25,17 +38,40 @@ export default function Dashboard() {
         exercises: exercises.data.length,
       });
     } catch (err) {
-      console.log("API error:", err);
+      console.log(err);
+    }
+  };
+
+  const loadChart = async () => {
+    try {
+      const res = await api.get("/sessions");
+
+      const grouped = res.data.reduce((acc, s) => {
+        acc[s.date] = (acc[s.date] || 0) + 1;
+        return acc;
+      }, {});
+
+      const chartData = Object.keys(grouped).map((date) => ({
+        date,
+        sessions: grouped[date],
+      }));
+
+      setSessionsData(chartData);
+    } catch (err) {
+      console.log(err);
     }
   };
 
   return (
     <div className="dashboard">
+
+      {/* HERO */}
       <div className="hero">
-        <h1>Physio Clinic Admin</h1>
-        <p>Manage therapists, sessions and exercises efficiently</p>
+        <h1>Physio Clinic Dashboard</h1>
+        <p>Overview of system activity</p>
       </div>
 
+      {/* STATS */}
       <div className="cards">
         <div className="card">
           <h2>{stats.therapists}</h2>
@@ -53,14 +89,31 @@ export default function Dashboard() {
         </div>
       </div>
 
+      {/* CHART */}
+      <div className="chartBox">
+        <h3>Sessions Overview</h3>
+
+        <ResponsiveContainer width="100%" height={300}>
+          <LineChart data={sessionsData}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="date" />
+            <YAxis />
+            <Tooltip />
+            <Line type="monotone" dataKey="sessions" stroke="#4f46e5" />
+          </LineChart>
+        </ResponsiveContainer>
+      </div>
+
+      {/* QUICK ACTIONS */}
       <div className="section">
-        <h3>Recent Activity</h3>
-        <div className="activity">
-          <p>✔ New therapist added</p>
-          <p>✔ Session updated</p>
-          <p>✔ Exercise created</p>
+        <h3>Quick Actions</h3>
+        <div className="actions">
+          <button>+ Add Therapist</button>
+          <button>+ New Session</button>
+          <button>+ Add Exercise</button>
         </div>
       </div>
+
     </div>
   );
 }

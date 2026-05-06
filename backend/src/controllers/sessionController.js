@@ -1,6 +1,4 @@
-const Session = require("../models/sessionModel");
-const Therapist = require("../models/therapistModel");
-
+const { Session } = require("../models");
 // CREATE
 const createSession = async (req, res) => {
   try {

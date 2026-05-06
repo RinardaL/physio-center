@@ -1,85 +1,132 @@
-.dashboard {
-  padding: 25px;
+.app {
+  background: #f7f4f1;
+  color: #2b1d16;
+  min-height: 100vh;
 }
 
 /* HERO */
 .hero {
-  background: #fffaf6;
+  background: #ffffff;
   padding: 25px;
-  border-radius: 16px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  border-radius: 18px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
   margin-bottom: 20px;
 }
 
 .hero h1 {
   margin: 0;
-  color: #6b4f4f;
+  color: #3b2a22;
+  font-size: 26px;
 }
 
 .hero p {
-  color: #8a6f64;
+  color: #7a5c50;
 }
 
-/* STATS */
+/* CARDS */
 .cards {
   display: flex;
-  gap: 15px;
+  gap: 16px;
   margin-bottom: 25px;
 }
 
 .card {
   flex: 1;
-  background: #f6efe9;
-  padding: 20px;
-  border-radius: 14px;
+  background: #ffffff;
+  padding: 22px;
+  border-radius: 16px;
   text-align: center;
-  transition: 0.2s;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+  transition: 0.25s;
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-4px);
 }
 
 .card h2 {
-  color: #c9a27e;
-  font-size: 30px;
+  font-size: 32px;
+  color: #a8744f;
 }
 
 /* SECTIONS */
 .section {
-  background: #fffaf6;
+  background: #ffffff;
   padding: 20px;
   border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
   margin-bottom: 20px;
 }
 
 .section h3 {
-  margin-bottom: 10px;
-  color: #6b4f4f;
+  color: #3b2a22;
 }
 
-/* ACTION BUTTONS */
-.actions {
-  display: flex;
-  gap: 10px;
-}
-
+/* BUTTONS */
 .actions button {
-  background: #c9a27e;
+  background: #a8744f;
   border: none;
-  padding: 10px 15px;
+  padding: 10px 16px;
   border-radius: 10px;
   color: white;
   cursor: pointer;
-  transition: 0.2s;
 }
 
 .actions button:hover {
-  background: #b88c6b;
+  background: #8a5e3f;
 }
 
-/* ACTIVITY */
-.activity p {
-  margin: 5px 0;
-  color: #5a4a42;
+.dark {
+  background: #15100d;
+  color: #e9ddd6;
+}
+
+/* HERO */
+.dark .hero {
+  background: #221813;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.35);
+}
+
+/* CARDS */
+.dark .card {
+  background: #241a15;
+  border: 1px solid #3a2a22;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+}
+
+/* SECTIONS */
+.dark .section {
+  background: #221813;
+}
+
+/* TEXT COLORS */
+.dark .hero h1,
+.dark .section h3 {
+  color: #f2e6df;
+}
+
+.dark .hero p {
+  color: #c9b3a7;
+}
+
+/* BUTTONS */
+.dark .actions button {
+  background: #7a4e36;
+}
+
+.dark .actions button:hover {
+  background: #915c3f;
+}
+
+/* TABLE / INPUT */
+.dark input,
+.dark table {
+  background: #221813;
+  color: #e9ddd6;
+  border-color: #3a2a22;
+}
+
+/* GLOBAL */
+* {
+  transition: all 0.25s ease;
 }
