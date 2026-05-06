@@ -1,4 +1,4 @@
-const Therapist = require("../models/therapistModel");
+const { Therapist } = require("../models");
 
 // CREATE
 const createTherapist = async (req, res) => {

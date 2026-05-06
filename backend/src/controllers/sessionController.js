@@ -1,4 +1,5 @@
 const Session = require("../models/sessionModel");
+const Therapist = require("../models/therapistModel");
 
 // CREATE
 const createSession = async (req, res) => {
@@ -10,10 +11,12 @@ const createSession = async (req, res) => {
   }
 };
 
-// GET ALL
+// GET ALL 
 const getSessions = async (req, res) => {
   try {
-    const sessions = await Session.findAll();
+    const sessions = await Session.findAll({
+      include: Therapist,
+    });
     res.json(sessions);
   } catch (err) {
     res.status(500).send(err.message);

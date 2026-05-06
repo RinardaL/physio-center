@@ -1,4 +1,4 @@
-const Equipment = require("../models/equipmentModel");
+const { Equipment } = require("../models");
 
 exports.createEquipment = async (req, res) => {
   const data = await Equipment.create(req.body);

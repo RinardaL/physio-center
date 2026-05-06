@@ -22,8 +22,12 @@ export default function Sessions() {
   }, []);
 
   const loadSessions = async () => {
-    const res = await axios.get("/sessions");
-    setData(res.data);
+    try {
+      const res = await axios.get("/sessions");
+      setData(res.data);
+    } catch (err) {
+      console.log("Load error:", err);
+    }
   };
 
   const handleChange = (e) => {
@@ -33,36 +37,67 @@ export default function Sessions() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (editingId) {
-      await axios.put(`/sessions/${editingId}`, form);
-    } else {
-      await axios.post("/sessions", form);
+    const payload = {
+      patient_id: Number(form.patient_id),
+      therapist_id: Number(form.therapist_id),
+      treatment_id: Number(form.treatment_id),
+      date: form.date,
+      start_time: form.start_time,
+      end_time: form.end_time,
+      status: form.status || "pending",
+      notes: form.notes || "",
+      progress: form.progress || "",
+    };
+
+    try {
+      if (editingId) {
+        await axios.put(`/sessions/${editingId}`, payload);
+      } else {
+        await axios.post("/sessions", payload);
+      }
+
+      setForm({
+        patient_id: "",
+        therapist_id: "",
+        treatment_id: "",
+        date: "",
+        start_time: "",
+        end_time: "",
+        status: "",
+        notes: "",
+        progress: "",
+      });
+
+      setEditingId(null);
+      loadSessions();
+    } catch (err) {
+      console.log("Submit error:", err);
     }
-
-    setForm({
-      patient_id: "",
-      therapist_id: "",
-      treatment_id: "",
-      date: "",
-      start_time: "",
-      end_time: "",
-      status: "",
-      notes: "",
-      progress: "",
-    });
-
-    setEditingId(null);
-    loadSessions();
   };
 
   const handleEdit = (s) => {
-    setForm(s);
+    setForm({
+      patient_id: s.patient_id || "",
+      therapist_id: s.therapist_id || "",
+      treatment_id: s.treatment_id || "",
+      date: s.date || "",
+      start_time: s.start_time || "",
+      end_time: s.end_time || "",
+      status: s.status || "",
+      notes: s.notes || "",
+      progress: s.progress || "",
+    });
+
     setEditingId(s.session_id);
   };
 
   const handleDelete = async (id) => {
-    await axios.delete(`/sessions/${id}`);
-    loadSessions();
+    try {
+      await axios.delete(`/sessions/${id}`);
+      loadSessions();
+    } catch (err) {
+      console.log("Delete error:", err);
+    }
   };
 
   return (

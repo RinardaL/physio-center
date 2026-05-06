@@ -1,7 +1,10 @@
 require("dotenv").config();
 const app = require("./src/app");
 const sequelize = require("./src/config/db");
-//sequelize.sync({ force: true })
+
+// load associations
+require("./src/models/index");
+//require("./src/models/associations");
 
 const PORT = process.env.PORT || 3000;
 

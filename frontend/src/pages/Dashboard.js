@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../api";
 import "./dashboard.css";
 
 export default function Dashboard() {
@@ -14,26 +14,28 @@ export default function Dashboard() {
   }, []);
 
   const loadStats = async () => {
-    const therapists = await axios.get("/therapists");
-    const sessions = await axios.get("/sessions");
-    const exercises = await axios.get("/exercises");
+    try {
+      const therapists = await api.get("/therapists");
+      const sessions = await api.get("/sessions");
+      const exercises = await api.get("/exercises");
 
-    setStats({
-      therapists: therapists.data.length,
-      sessions: sessions.data.length,
-      exercises: exercises.data.length,
-    });
+      setStats({
+        therapists: therapists.data.length,
+        sessions: sessions.data.length,
+        exercises: exercises.data.length,
+      });
+    } catch (err) {
+      console.log("API error:", err);
+    }
   };
 
   return (
     <div className="dashboard">
-      {/* HERO */}
       <div className="hero">
         <h1>Physio Clinic Admin</h1>
         <p>Manage therapists, sessions and exercises efficiently</p>
       </div>
 
-      {/* STATS */}
       <div className="cards">
         <div className="card">
           <h2>{stats.therapists}</h2>
@@ -51,20 +53,8 @@ export default function Dashboard() {
         </div>
       </div>
 
-      {/* QUICK ACTIONS */}
-      <div className="section">
-        <h3>Quick Actions</h3>
-        <div className="actions">
-          <button>+ Add Therapist</button>
-          <button>+ New Session</button>
-          <button>+ Add Exercise</button>
-        </div>
-      </div>
-
-      {/* RECENT ACTIVITY (fake UI for now) */}
       <div className="section">
         <h3>Recent Activity</h3>
-
         <div className="activity">
           <p>✔ New therapist added</p>
           <p>✔ Session updated</p>

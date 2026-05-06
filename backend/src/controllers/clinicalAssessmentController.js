@@ -1,4 +1,4 @@
-const ClinicalAssessment = require("../models/clinicalAssessmentModel");
+const { ClinicalAssessment } = require("../models");
 
 exports.createAssessment = async (req, res) => {
   const data = await ClinicalAssessment.create(req.body);

@@ -1,4 +1,4 @@
-const Exercise = require("../models/exerciseModel");
+const { Exercise } = require("../models");
 
 // CREATE
 exports.createExercise = async (req, res) => {

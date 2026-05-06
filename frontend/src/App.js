@@ -19,9 +19,9 @@ export default function App() {
             <Route path="/" element={<Dashboard />} />
             <Route path="/therapists" element={<Therapists />} />
             <Route path="/sessions" element={<Sessions />} />
-            <Route path="/exercises" element={<Exercises/>}/>
-            <Route path="/equipment" element={<Equipment/>}/>
-            <Route path="/assessments"element={<Assessments/>}/>
+            <Route path="/exercises" element={<Exercises />} />
+            <Route path="/equipment" element={<Equipment />} />
+            <Route path="/assessments" element={<Assessments />} />
           </Routes>
         </div>
       </div>
