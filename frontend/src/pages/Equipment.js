@@ -48,7 +48,7 @@ export default function Equipment() {
   };
 
   return (
-    <div className="container">
+    <div className="page">
       <h2>Equipment</h2>
 
       <form onSubmit={handleSubmit}>

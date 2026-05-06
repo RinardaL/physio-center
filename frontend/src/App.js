@@ -8,6 +8,10 @@ import Sessions from "./pages/Sessions";
 import Exercises from "./pages/Exercises";
 import Equipment from "./pages/Equipment";
 import Assessments from "./pages/Assessments";
+// import Patients from "./pages/Patients";
+// import Payments from "./pages/Payment";
+// import TreatmentPlans from "./pages/TreatmentPlans";
+// import ExercisesPlan from "./pages/ExercisesPlan";
 
 export default function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -31,14 +35,24 @@ export default function App() {
 
         <Sidebar />
 
-        <div style={{ marginLeft: "220px", padding: "20px", width: "100%" }}>
+        <div
+          style={{
+          marginLeft: "240px",
+          padding: "30px",
+          width: "calc(100% - 240px)",
+            }}>
+
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/therapists" element={<Therapists />} />
-            <Route path="/sessions" element={<Sessions />} />
+            {/* // <Route path="/patients" element={<Patients />} /> */}
+             <Route path="/sessions" element={<Sessions />} />
+            {/* //<Route path="/treatment-plans" element={<TreatmentPlans />} /> */}
+            {/* //Route path="/exercise-plans" element={<ExercisesPlan />}  */}
             <Route path="/exercises" element={<Exercises />} />
             <Route path="/equipment" element={<Equipment />} />
             <Route path="/assessments" element={<Assessments />} />
+            {/* //<Route path="/payments" element={<Payments />} /> */}
           </Routes>
         </div>
       </div>

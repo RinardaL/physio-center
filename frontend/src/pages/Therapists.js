@@ -55,7 +55,7 @@ export default function Therapists() {
 
   return (
     
-  <div className="container">
+  <div className="page">
     
       <h2>Therapists</h2>
 

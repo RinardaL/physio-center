@@ -1,13 +1,169 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: Inter, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  background: #f5f1ed;
+  color: #2b1d16;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+/* PAGE */
+.page {
+  background: transparent;
+  color: inherit;
+  max-width: 1200px;
+}
+
+/* FORMS */
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+/* INPUTS */
+input,
+select,
+textarea {
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid #d8cfc9;
+  background: white;
+  outline: none;
+  color: #2b1d16;
+
+  transition: 0.2s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #a8744f;
+}
+
+/* TABLE WRAPPER */
+.tableWrapper {
+  overflow-x: auto;
+}
+
+/* TABLE */
+table {
+  width: 100%;
+  table-layout: fixed;
+
+  border-collapse: collapse;
+
+  background: white;
+
+  border-radius: 16px;
+  overflow: hidden;
+
+  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+}
+
+/* CELLS */
+th,
+td {
+  padding: 14px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+
+  word-wrap: break-word;
+}
+
+/* HEADER */
+th {
+  background: #f5ede7;
+  color: #5f4b42;
+}
+
+/* BUTTON */
+button {
+  padding: 10px 14px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+/* LIGHT MODE APP */
+.app {
+  background: #f5f1ed;
+  min-height: 100vh;
+}
+
+/* DARK MODE */
+.dark {
+  background: #15100d;
+  color: #f1e5de;
+  min-height: 100vh;
+}
+
+/* PAGE DARK */
+.dark .page {
+  background: transparent;
+  color: #f1e5de;
+}
+
+/* FORMS DARK */
+.dark form {
+  color: #f1e5de;
+}
+
+/* INPUTS DARK */
+.dark input,
+.dark select,
+.dark textarea {
+  background: #241a15;
+  color: #f1e5de;
+  border: 1px solid #3a2a22;
+}
+
+/* TABLE DARK */
+.dark table {
+  background: #221813;
+  color: #f1e5de;
+}
+
+/* TABLE HEADER DARK */
+.dark th {
+  background: #2d2019;
+  color: #f1e5de;
+}
+
+/* TABLE CELLS DARK */
+.dark td {
+  border-bottom: 1px solid #3a2a22;
+}
+
+/* BUTTONS DARK */
+.dark button {
+  background: #7a4e36;
+  color: white;
+}
+
+.dark button:hover {
+  background: #915c3f;
+}
+
+/* SCROLLBAR */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #a8744f;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
 }

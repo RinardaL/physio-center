@@ -1,15 +1,5 @@
 import { useEffect, useState } from "react";
 import api from "../api";
-import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  Tooltip,
-  CartesianGrid,
-  ResponsiveContainer,
-} from "recharts";
-
 import "./dashboard.css";
 
 export default function Dashboard() {
@@ -17,59 +7,67 @@ export default function Dashboard() {
     therapists: 0,
     sessions: 0,
     exercises: 0,
+    assessments: 0,
   });
 
-  const [sessionsData, setSessionsData] = useState([]);
-
+  const [darkMode, setDarkMode] = useState(() => {
+  return localStorage.getItem("darkMode") === "true";
+});
+  // load stats
   useEffect(() => {
+    const loadStats = async () => {
+      try {
+        const [therapists, sessions, exercises, assessments] =
+          await Promise.all([
+            api.get("/therapists"),
+            api.get("/sessions"),
+            api.get("/exercises"),
+            api.get("/assessments"),
+          ]);
+          
+
+        setStats({
+          therapists: therapists.data.length,
+          sessions: sessions.data.length,
+          exercises: exercises.data.length,
+          assessments: assessments.data.length,
+        });
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
     loadStats();
-    loadChart();
   }, []);
 
-  const loadStats = async () => {
-    try {
-      const therapists = await api.get("/therapists");
-      const sessions = await api.get("/sessions");
-      const exercises = await api.get("/exercises");
+  // dark mode + localStorage
 
-      setStats({
-        therapists: therapists.data.length,
-        sessions: sessions.data.length,
-        exercises: exercises.data.length,
-      });
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  const loadChart = async () => {
-    try {
-      const res = await api.get("/sessions");
-
-      const grouped = res.data.reduce((acc, s) => {
-        acc[s.date] = (acc[s.date] || 0) + 1;
-        return acc;
-      }, {});
-
-      const chartData = Object.keys(grouped).map((date) => ({
-        date,
-        sessions: grouped[date],
-      }));
-
-      setSessionsData(chartData);
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  useEffect(() => {
+    document.body.classList.toggle("dark", darkMode);
+    localStorage.setItem("darkMode", darkMode);
+  }, [darkMode]);
 
   return (
     <div className="dashboard">
-
+      <button
+  onClick={() => setDarkMode(prev => !prev)}
+  style={{
+    position: "absolute",
+    top: "10px",
+    right: "10px",
+    padding: "8px 12px",
+    cursor: "pointer"
+  }}
+>
+  {darkMode ? "Light Mode ☀" : "Dark Mode 🌙"}
+</button> 
       {/* HERO */}
       <div className="hero">
-        <h1>Physio Clinic Dashboard</h1>
-        <p>Overview of system activity</p>
-      </div>
+        <div>
+          <h1>Welcome back 👋</h1>
+          <p>Here’s what’s happening in your clinic today.</p>
+        </div>
+       </div>
 
       {/* STATS */}
       <div className="cards">
@@ -87,33 +85,35 @@ export default function Dashboard() {
           <h2>{stats.exercises}</h2>
           <p>Exercises</p>
         </div>
-      </div>
 
-      {/* CHART */}
-      <div className="chartBox">
-        <h3>Sessions Overview</h3>
-
-        <ResponsiveContainer width="100%" height={300}>
-          <LineChart data={sessionsData}>
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="date" />
-            <YAxis />
-            <Tooltip />
-            <Line type="monotone" dataKey="sessions" stroke="#4f46e5" />
-          </LineChart>
-        </ResponsiveContainer>
-      </div>
-
-      {/* QUICK ACTIONS */}
-      <div className="section">
-        <h3>Quick Actions</h3>
-        <div className="actions">
-          <button>+ Add Therapist</button>
-          <button>+ New Session</button>
-          <button>+ Add Exercise</button>
+        <div className="card">
+          <h2>{stats.assessments}</h2>
+          <p>Assessments</p>
         </div>
       </div>
 
+      {/* GRID */}
+      <div className="dashboardGrid">
+        <div className="section">
+          <h3>Recent Activity</h3>
+          <div className="activity">
+            <p>✔ New session added</p>
+            <p>✔ Assessment completed</p>
+            <p>✔ Exercise updated</p>
+            <p>✔ New therapist registered</p>
+          </div>
+        </div>
+
+        <div className="section">
+          <h3>Quick Actions</h3>
+          <div className="actions">
+            <button>+ Add Patient</button>
+            <button>+ New Session</button>
+            <button>+ Add Exercise</button>
+            <button>+ Add Assessment</button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

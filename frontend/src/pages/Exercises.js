@@ -56,7 +56,7 @@ export default function Exercises() {
   };
 
   return (
-    <div className="container">
+    <div className="page">
       <h2>Exercises</h2>
 
       {/* FORM */}

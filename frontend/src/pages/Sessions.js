@@ -101,7 +101,7 @@ export default function Sessions() {
   };
 
   return (
-    <div className="container">
+    <div className="page">
       <h2>Sessions</h2>
 
       {/* FORM */}
