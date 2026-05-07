@@ -104,7 +104,6 @@ export default function Sessions() {
     <div className="page">
       <h2>Sessions</h2>
 
-      {/* FORM */}
       <form onSubmit={handleSubmit}>
         <input name="patient_id" placeholder="Patient ID" value={form.patient_id} onChange={handleChange} />
         <input name="therapist_id" placeholder="Therapist ID" value={form.therapist_id} onChange={handleChange} />
@@ -121,7 +120,7 @@ export default function Sessions() {
         </button>
       </form>
 
-      {/* TABLE */}
+      
       <table>
         <thead>
           <tr>

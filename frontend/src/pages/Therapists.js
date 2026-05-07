@@ -84,7 +84,7 @@ export default function Therapists() {
         </button>
       </form>
     
-{/* TABLE */}
+
 <table>
   <thead>
     <tr>

@@ -16,13 +16,13 @@ export default function Sidebar() {
   return (
     <div className="sidebar">
 
-      {/* LOGO */}
+      
       <div className="logo">
         <h2>Physio Clinic</h2>
         <p>Management System</p>
       </div>
 
-      {/* MENU */}
+
       <nav className="menu">
 
         <NavLink to="/" className="link">

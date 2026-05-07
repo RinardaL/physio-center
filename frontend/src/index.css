@@ -13,14 +13,12 @@ code {
     monospace;
 }
 
-/* PAGE */
 .page {
   background: transparent;
   color: inherit;
   max-width: 1200px;
 }
 
-/* FORMS */
 form {
   display: flex;
   flex-wrap: wrap;
@@ -28,7 +26,6 @@ form {
   margin-bottom: 20px;
 }
 
-/* INPUTS */
 input,
 select,
 textarea {
@@ -48,12 +45,11 @@ textarea:focus {
   border-color: #a8744f;
 }
 
-/* TABLE WRAPPER */
 .tableWrapper {
   overflow-x: auto;
 }
 
-/* TABLE */
+
 table {
   width: 100%;
   table-layout: fixed;
@@ -68,7 +64,7 @@ table {
   box-shadow: 0 6px 18px rgba(0,0,0,0.05);
 }
 
-/* CELLS */
+
 th,
 td {
   padding: 14px;
@@ -78,13 +74,13 @@ td {
   word-wrap: break-word;
 }
 
-/* HEADER */
+
 th {
   background: #f5ede7;
   color: #5f4b42;
 }
 
-/* BUTTON */
+
 button {
   padding: 10px 14px;
   border: none;
@@ -94,13 +90,13 @@ button {
   transition: 0.2s;
 }
 
-/* LIGHT MODE APP */
+
 .app {
   background: #f5f1ed;
   min-height: 100vh;
 }
 
-/* DARK MODE */
+
 .dark {
   background: #15100d;
   color: #f1e5de;
@@ -113,12 +109,12 @@ button {
   color: #f1e5de;
 }
 
-/* FORMS DARK */
+
 .dark form {
   color: #f1e5de;
 }
 
-/* INPUTS DARK */
+
 .dark input,
 .dark select,
 .dark textarea {
@@ -127,24 +123,24 @@ button {
   border: 1px solid #3a2a22;
 }
 
-/* TABLE DARK */
+
 .dark table {
   background: #221813;
   color: #f1e5de;
 }
 
-/* TABLE HEADER DARK */
+
 .dark th {
   background: #2d2019;
   color: #f1e5de;
 }
 
-/* TABLE CELLS DARK */
+
 .dark td {
   border-bottom: 1px solid #3a2a22;
 }
 
-/* BUTTONS DARK */
+
 .dark button {
   background: #7a4e36;
   color: white;
@@ -154,7 +150,7 @@ button {
   background: #915c3f;
 }
 
-/* SCROLLBAR */
+
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -172,7 +168,7 @@ button {
   margin-left: 200px;
 }
 
-/* FORM */
+
 form {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -202,7 +198,7 @@ form button {
   cursor: pointer;
 }
 
-/* TABLE */
+
 .tableWrapper {
   width: 100%;
   overflow-x: auto;

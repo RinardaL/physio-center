@@ -60,7 +60,7 @@ export default function Exercises() {
 
       <h2>Exercises</h2>
 
-      {/* FORM */}
+    
       <form onSubmit={handleSubmit}>
         <input
           name="name"
@@ -95,7 +95,7 @@ export default function Exercises() {
         </button>
       </form>
 
-      {/* TABLE WRAPPER */}
+      
       <div className="tableWrapper">
         <table>
           <thead>
