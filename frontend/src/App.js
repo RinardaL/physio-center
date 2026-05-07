@@ -5,6 +5,8 @@ import Dashboard from "./pages/Dashboard";
 import Therapists from "./pages/Therapists";
 import Sessions from "./pages/Sessions";
 import Exercises from "./pages/Exercises";
+import Equipment from "./pages/Equipment";
+import Assessments from "./pages/Assessments";
 
 export default function App() {
   return (
@@ -18,6 +20,8 @@ export default function App() {
             <Route path="/therapists" element={<Therapists />} />
             <Route path="/sessions" element={<Sessions />} />
             <Route path="/exercises" element={<Exercises/>}/>
+            <Route path="/equipment" element={<Equipment/>}/>
+            <Route path="/assessments"element={<Assessments/>}/>
           </Routes>
         </div>
       </div>
