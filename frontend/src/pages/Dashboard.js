@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import api from "../api";
 import "./dashboard.css";
 
 export default function Dashboard() {
+  const navigate = useNavigate();
+
   const [stats, setStats] = useState({
     therapists: 0,
     sessions: 0,
@@ -66,6 +69,22 @@ export default function Dashboard() {
         <div>
           <h1>Welcome back 👋</h1>
           <p>Here’s what’s happening in your clinic today.</p>
+          <button 
+        onClick={() => setDarkMode(prev => !prev)}
+        style={{
+        position: "absolute",
+        top: "10px",
+        right: "10px",
+        padding: "8px 12px",
+        cursor: "pointer",
+        border: "none",
+        borderRadius: "10px",
+        background: darkMode ? "#2d2019" : "#a8744f",
+        color: "white"
+         }}
+        >
+       {darkMode ? "☀ Light Mode" : "🌙 Dark Mode"}
+        </button>
         </div>
        </div>
 
@@ -107,10 +126,14 @@ export default function Dashboard() {
         <div className="section">
           <h3>Quick Actions</h3>
           <div className="actions">
-            <button>+ Add Patient</button>
-            <button>+ New Session</button>
-            <button>+ Add Exercise</button>
-            <button>+ Add Assessment</button>
+           <button onClick={() => navigate("/patients")}>
+                + Add Patient </button>
+           <button onClick={() => navigate("/sessions")}>
+                 + New Session</button>
+           <button onClick={() => navigate("/exercises")}>
+                 + Add Exercise</button>
+           <button onClick={() => navigate("/assessments")}>
+                 + Add Assessment</button>
           </div>
         </div>
       </div>

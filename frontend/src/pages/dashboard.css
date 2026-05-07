@@ -1,23 +1,18 @@
+/* ================= DASHBOARD ================= */
 .dashboard {
   padding: 25px;
+  max-width: 1400px;
 }
 
 /* HERO */
 .hero {
-  background: linear-gradient(
-    135deg,
-    #ffffff,
-    #f7f1ec
-  );
-
+  background: linear-gradient(135deg, #ffffff, #f7f1ec);
   padding: 35px;
   border-radius: 24px;
-
   margin-bottom: 30px;
-
-  box-shadow:
-    0 10px 30px rgba(0,0,0,0.06);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
 }
+
 .hero h1 {
   margin: 0;
   color: #3b2a22;
@@ -29,25 +24,20 @@
   color: #7a5c50;
 }
 
-/* STATS */
+/* STATS CARDS */
 .cards {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 18px;
   margin-bottom: 25px;
 }
+
 .card {
   background: white;
-
   padding: 24px;
-
   border-radius: 22px;
-
-  box-shadow:
-    0 8px 24px rgba(0,0,0,0.05);
-
+  box-shadow: 0 8px 24px rgba(0,0,0,0.05);
   border: 1px solid #f0e7e1;
-
   transition: all 0.25s ease;
 }
 
@@ -119,13 +109,39 @@
   background: #8a5e3f;
 }
 
-/* DARK MODE */
+/* ================= TABLE ================= */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+th {
+  background: #f4ece7;
+  color: #3b2a22;
+  padding: 14px;
+  text-align: left;
+}
+
+td {
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+tr:hover {
+  background: #faf7f5;
+}
+
+/* ================= GLOBAL ================= */
+* {
+  transition: all 0.25s ease;
+}
+
+/* ================= DARK MODE ================= */
 .dark .hero {
-  background: linear-gradient(
-    135deg,
-    #221813,
-    #2d2019
-  );
+  background: linear-gradient(135deg, #221813, #2d2019);
 }
 
 .dark .hero h1,
@@ -139,10 +155,50 @@
 .dark .activity p {
   color: #c7b0a5;
 }
+
+/* CARDS DARK */
 .dark .card {
+  background: #221813;
+  color: #f1e5de;
   border: 1px solid #3a2a22;
 }
 
+/* SECTION DARK */
+.dark .section {
+  background: #221813;
+  color: #f1e5de;
+  border: 1px solid #3a2a22;
+}
+
+/* TABLE DARK */
+.dark table {
+  background: #221813;
+  color: #f1e5de;
+}
+
+.dark th {
+  background: #2d2019;
+  color: #f1e5de;
+}
+
+.dark td {
+  border-bottom: 1px solid #3a2a22;
+}
+
+.dark tr:hover {
+  background: #2a1d16;
+}
+
+/* INPUTS DARK */
+.dark input,
+.dark select,
+.dark textarea {
+  background: #241a15;
+  color: #f1e5de;
+  border: 1px solid #3a2a22;
+}
+
+/* BUTTONS DARK */
 .dark .actions button {
   background: #7a4e36;
 }
@@ -151,15 +207,7 @@
   background: #915c3f;
 }
 
-* {
-  transition: all 0.25s ease;
-}
-.dashboard {
-  max-width: 1400px;
-}
-/* RESPONSIVE */
-
-/* Tablet */
+/* ================= RESPONSIVE ================= */
 @media (max-width: 1024px) {
   .cards {
     grid-template-columns: repeat(2, 1fr);
@@ -170,7 +218,6 @@
   }
 }
 
-/* Mobile */
 @media (max-width: 600px) {
   .dashboard {
     padding: 15px;

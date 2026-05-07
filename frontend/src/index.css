@@ -167,3 +167,67 @@ button {
 ::-webkit-scrollbar-track {
   background: transparent;
 }
+.page {
+  padding: 40px;
+  margin-left: 200px;
+}
+
+/* FORM */
+form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin-bottom: 25px;
+}
+
+form input,
+form textarea {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  width: 100%;
+}
+
+form textarea {
+  resize: none;
+  min-height: 80px;
+}
+
+form button {
+  background: #a8744f;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 12px;
+  cursor: pointer;
+}
+
+/* TABLE */
+.tableWrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+th {
+  background: #f4ece7;
+  color: #3b2a22;
+  padding: 14px;
+  text-align: left;
+}
+
+td {
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+tr:hover {
+  background: #faf7f5;
+}
