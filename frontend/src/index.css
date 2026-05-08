@@ -3,27 +3,31 @@ body {
   font-family: Inter, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
   background: #f5f1ed;
   color: #2b1d16;
+  overflow-x: hidden;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+.app {
+  background: #f5f1ed;
+  min-height: 100vh;
 }
 
 .page {
-  background: transparent;
-  color: inherit;
-  max-width: 1200px;
+  padding: 40px;
+  margin-left: 240px;
+  min-height: 100vh;
 }
 
 form {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin-bottom: 25px;
 }
 
 input,
@@ -35,8 +39,7 @@ textarea {
   background: white;
   outline: none;
   color: #2b1d16;
-
-  transition: 0.2s;
+  width: 100%;
 }
 
 input:focus,
@@ -45,160 +48,11 @@ textarea:focus {
   border-color: #a8744f;
 }
 
-.tableWrapper {
-  overflow-x: auto;
-}
-
-
-table {
-  width: 100%;
-  table-layout: fixed;
-
-  border-collapse: collapse;
-
-  background: white;
-
-  border-radius: 16px;
-  overflow: hidden;
-
-  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
-}
-
-
-th,
-td {
-  padding: 14px;
-  border-bottom: 1px solid #eee;
-  text-align: left;
-
-  word-wrap: break-word;
-}
-
-
-th {
-  background: #f5ede7;
-  color: #5f4b42;
-}
-
-
-button {
-  padding: 10px 14px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-
-  transition: 0.2s;
-}
-
-
-.app {
-  background: #f5f1ed;
-  min-height: 100vh;
-}
-
-
-.dark {
-  background: #15100d;
-  color: #f1e5de;
-  min-height: 100vh;
-}
-
-/* PAGE DARK */
-.dark .page {
-  background: transparent;
-  color: #f1e5de;
-}
-
-
-.dark form {
-  color: #f1e5de;
-}
-
-
-.dark input,
-.dark select,
-.dark textarea {
-  background: #241a15;
-  color: #f1e5de;
-  border: 1px solid #3a2a22;
-}
-
-
-.dark table {
-  background: #221813;
-  color: #f1e5de;
-}
-
-
-.dark th {
-  background: #2d2019;
-  color: #f1e5de;
-}
-
-
-.dark td {
-  border-bottom: 1px solid #3a2a22;
-}
-
-
-.dark button {
-  background: #7a4e36;
-  color: white;
-}
-
-.dark button:hover {
-  background: #915c3f;
-}
-
-
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #a8744f;
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-.page {
-  padding: 40px;
-  margin-left: 200px;
-}
-
-
-form {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 14px;
-  margin-bottom: 25px;
-}
-
-form input,
-form textarea {
-  padding: 12px;
-  border-radius: 10px;
-  border: 1px solid #ddd;
-  width: 100%;
-}
-
-form textarea {
+textarea {
   resize: none;
   min-height: 80px;
 }
 
-form button {
-  background: #a8744f;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  padding: 12px;
-  cursor: pointer;
-}
-
-
 .tableWrapper {
   width: 100%;
   overflow-x: auto;
@@ -210,6 +64,7 @@ table {
   background: white;
   border-radius: 16px;
   overflow: hidden;
+  table-layout: fixed;
 }
 
 th {
@@ -222,8 +77,71 @@ th {
 td {
   padding: 15px;
   border-bottom: 1px solid #eee;
+  word-wrap: break-word;
 }
 
 tr:hover {
   background: #faf7f5;
+}
+
+button {
+  padding: 10px 14px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background: #a8744f;
+  color: white;
+}
+
+button:hover {
+  background: #915c3f;
+}
+
+.dark {
+  background: #15100d;
+  color: #f1e5de;
+  min-height: 100vh;
+}
+
+.dark .page {
+  color: #f1e5de;
+}
+
+.dark input,
+.dark select,
+.dark textarea {
+  background: #241a15;
+  color: #f1e5de;
+  border: 1px solid #3a2a22;
+}
+
+.dark table {
+  background: #221813;
+  color: #f1e5de;
+}
+
+.dark th {
+  background: #2d2019;
+  color: #f1e5de;
+}
+
+.dark td {
+  border-bottom: 1px solid #3a2a22;
+}
+
+.dark tr:hover {
+  background: #2b1f19;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #a8744f;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
 }
