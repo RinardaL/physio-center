@@ -5,6 +5,8 @@ import AdminLayout from "./layouts/AdminLayout";
 
 import Home from "./pages/public/Home";
 
+import Navbar from "./components/Navbar";
+
 import Dashboard from "./pages/admin/Dashboard";
 import Therapists from "./pages/admin/Therapists";
 import Sessions from "./pages/admin/Sessions";
@@ -40,20 +42,21 @@ export default function App() {
 
       <Routes>
 
-  {/* PUBLIC */}
-  <Route path="/home" element={<Home />} />
 
-  {/* ADMIN */}
-  <Route element={<AdminLayout />}>
-    <Route path="/dashboard" element={<Dashboard />} />
-    <Route path="/therapists" element={<Therapists />} />
-    <Route path="/sessions" element={<Sessions />} />
-    <Route path="/exercises" element={<Exercises />} />
-    <Route path="/equipment" element={<Equipment />} />
-    <Route path="/assessments" element={<Assessments />} />
-  </Route>
+       <Route path="/home" element={<Home />} />
 
-</Routes>
+      <Route path="/navbar" element={<Home />} />
+        
+        <Route element={<AdminLayout />}>
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/therapists" element={<Therapists />} />
+        <Route path="/sessions" element={<Sessions />} />
+        <Route path="/exercises" element={<Exercises />} />
+        <Route path="/equipment" element={<Equipment />} />
+        <Route path="/assessments" element={<Assessments />} />
+      </Route>
+
+       </Routes>
 
     </BrowserRouter>
   );

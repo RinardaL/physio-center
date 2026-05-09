@@ -1,0 +1,43 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+
+  padding: 10px 60px;
+  z-index: 1000;
+
+  background: rgba(255, 255, 255, 0.15);
+
+}
+
+
+.logo {
+  font-size: 18px;
+  font-weight: 600;
+  color: dark brown;
+   transform: translateY(8px);
+}
+
+
+.navLinks {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: flex;
+  gap: 24px;
+
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navLinks li {
+  font-size: 14px;
+  color: white;
+  cursor: pointer;
+}

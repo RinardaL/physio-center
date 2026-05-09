@@ -1,107 +1,247 @@
+:root {
+  --primary: #b07b56;
+  --dark: #16202b;
+  --text: #6e625b;
+  --bg: #f7f5f2;
+  --white: #ffffff;
+}
+
+/* GLOBAL */
+body {
+  margin: 0;
+  background: var(--bg);
+}
+
+h1, h2, h3 {
+  font-weight: 600;
+  color: var(--dark);
+}
+
+p {
+  color: var(--text);
+  line-height: 1.7;
+  font-size: 16px;
+}
+
+/* SECTION DEFAULT */
+section {
+  padding: 100px 80px;
+}
+
+/* HERO FIX (FULL SCREEN) */
 .home {
-  background: #f7f5f2;
-  min-height: 100vh;
-  color: #2d2622;
+  padding: 0;
 }
 
-/* HERO LAYOUT */
-.hero {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+.heroImage {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
 
+.heroImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(60, 40, 30, 0.45);
+
+  display: flex;
   align-items: center;
+  justify-content: flex-start;
 
-  gap: 60px;
-
-  padding: 90px 80px;
+  padding-left: 80px;
 }
 
-/* TEXT SIDE */
-.heroText .tag {
-  display: inline-block;
-
-  background: #e8dfd7;
-  color: #7a6455;
-
-  padding: 8px 14px;
-
-  border-radius: 30px;
-
-  font-size: 14px;
-
-  margin-bottom: 20px;
+.heroText {
+  max-width: 550px;
+  color: white;
 }
 
 .heroText h1 {
-  font-size: 58px;
-  line-height: 1.1;
-
-  margin-bottom: 20px;
+  font-size: 44px;
+  color: white;
 }
 
 .heroText p {
-  font-size: 17px;
-  color: #6e625b;
-
-  line-height: 1.7;
-
-  margin-bottom: 30px;
+  color: white;
+  opacity: 0.9;
 }
 
 /* BUTTONS */
 .heroButtons {
   display: flex;
-  gap: 14px;
+  gap: 12px;
 }
 
 .primaryBtn {
-  background: #8c6a58;
+  background: var(--primary);
   color: white;
-
   border: none;
   padding: 14px 24px;
-
   border-radius: 12px;
-
   cursor: pointer;
 }
 
 .secondaryBtn {
   background: transparent;
-  border: 1px solid #d7ccc5;
-
-  color: #5f5148;
-
+  border: 1px solid white;
+  color: white;
   padding: 14px 24px;
-
   border-radius: 12px;
-
   cursor: pointer;
 }
 
-/* IMAGE */
-.heroImage img {
+/* SERVICES */
+.services {
+  background: var(--bg);
+}
+
+.sectionTitle {
+  text-align: center;
+  max-width: 800px;
+  margin: auto;
+  margin-bottom: 70px;
+}
+
+.sectionTitle span {
+  color: var(--primary);
+  letter-spacing: 3px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.sectionTitle h2 {
+  font-size: 42px;
+  margin: 20px 0;
+}
+
+.serviceGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.serviceCard {
+  background: white;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  transition: 0.3s;
+}
+
+.serviceCard:hover {
+  transform: translateY(-8px);
+}
+
+.serviceCard img {
   width: 100%;
-  height: 520px;
-
+  height: 240px;
   object-fit: cover;
+}
 
+.serviceContent {
+  padding: 24px;
+  text-align: center;
+}
+
+.serviceContent h3 {
+  font-size: 22px;
+}
+
+.serviceContent button {
+  background: none;
+  border: none;
+  color: var(--primary);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* APPOINTMENT */
+.appointmentBtn {
+  text-align: center;
+  margin-top: 60px;
+}
+
+.appointmentBtn button {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 16px 28px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+/* ABOUT */
+.about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  background: white;
+}
+
+.aboutImage {
+  position: relative;
+}
+
+.aboutImage img {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
   border-radius: 28px;
+  display: block;
 }
 
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  .hero {
-    grid-template-columns: 1fr;
-
-    padding: 50px 25px;
-  }
-
-  .heroText h1 {
-    font-size: 38px;
-  }
-
-  .heroImage img {
-    height: 350px;
-  }
+/* FIX: EXPERIENCE BOX BRËNDA IMAGJIT */
+.experienceBox {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background: white;
+  padding: 18px 22px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  z-index: 2;
 }
+
+.experienceBox h3 {
+  font-size: 34px;
+  color: var(--primary);
+}
+
+.experienceBox p {
+  font-size: 13px;
+  color: var(--text);
+}
+
+/* ABOUT TEXT */
+.aboutContent span {
+  color: var(--primary);
+  letter-spacing: 3px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.aboutContent h2 {
+  font-size: 40px;
+  margin: 18px 0;
+}
+
+.aboutFeatures {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.feature h4 {
+  color: var(--dark);
+}
+
+
+
