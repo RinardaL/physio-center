@@ -6,7 +6,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// routes
+
 const therapistRoutes = require("./routes/therapistRoutes");
 const sessionRoutes = require("./routes/sessionRoutes");
 const exerciseRoutes = require("./routes/exerciseRoutes");
@@ -31,12 +31,11 @@ app.use("/exercise-plans", exercisePlanRoutes);
 app.use("/payments", paymentRoutes);
 
 
-// test route
 app.get("/", (req, res) => {
   res.send("SERVER IS WORKING");
 });
 
-// error handler
+
 app.use((err, req, res, next) => {
   console.error(err);
   res.status(500).send("Server error");

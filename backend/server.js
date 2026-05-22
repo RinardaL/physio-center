@@ -1,12 +1,21 @@
 require("dotenv").config();
-const app = require("./src/app");
+
+const express = require("express");
+const cors = require("cors");
 const sequelize = require("./src/config/db");
+const authRoutes = require("./routes/authRoutes");
 
 // load associations
 require("./src/models/index");
-//require("./src/models/associations");
 
-const PORT = process.env.PORT || 3000;
+const app = express();
+
+app.use(cors());
+app.use(express.json());
+
+app.use("/api/auth", authRoutes);
+
+const PORT = process.env.PORT || 5000;
 
 (async () => {
   try {
