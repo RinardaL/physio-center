@@ -162,7 +162,7 @@ section {
   cursor: pointer;
 }
 
-/* APPOINTMENT */
+
 .appointmentBtn {
   text-align: center;
   margin-top: 60px;
@@ -177,7 +177,7 @@ section {
   cursor: pointer;
 }
 
-/* ABOUT */
+
 .about {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -198,7 +198,7 @@ section {
   display: block;
 }
 
-/* FIX: EXPERIENCE BOX BRËNDA IMAGJIT */
+
 .experienceBox {
   position: absolute;
   bottom: 20px;
@@ -220,7 +220,7 @@ section {
   color: var(--text);
 }
 
-/* ABOUT TEXT */
+
 .aboutContent span {
   color: var(--primary);
   letter-spacing: 3px;
