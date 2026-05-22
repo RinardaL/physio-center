@@ -133,3 +133,12 @@ body {
 
   box-shadow: 0 6px 18px rgba(122,78,54,0.35);
 }
+
+.logout-btn {
+  margin-top: 20px;
+  padding: 10px;
+  background: red;
+  color: white;
+  border: none;
+  cursor: pointer;
+}

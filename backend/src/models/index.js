@@ -12,6 +12,7 @@ const Session = require("./sessionModel")(sequelize, DataTypes);
 const Therapist = require("./therapistModel")(sequelize, DataTypes);
 const Treatment = require("./treatmentModel")(sequelize, DataTypes);
 const TreatmentPlan = require("./treatmentPlanModel")(sequelize, DataTypes);
+const  User = require("./userModel")(sequelize,DataTypes);
 
 
 
@@ -29,6 +30,16 @@ module.exports = {
   Therapist,
   Treatment,
   TreatmentPlan,
+  User,
   
 
 };
+
+Object.keys(module.exports).forEach((modelName) => {
+  if (module.exports[modelName].associate) {
+    module.exports[modelName].associate(module.exports);
+  }
+
+});
+
+console.log("EXPORTS:", module.exports);

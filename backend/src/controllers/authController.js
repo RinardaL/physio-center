@@ -1,5 +1,10 @@
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const { User } = require("../models/index");
+// const User = db.User;
+// console.log("USER MODEL:", User);
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 const { User } = require("../models");
 
 // REGISTER
@@ -26,10 +31,11 @@ const register = async (req, res) => {
       role: "patient",
     });
 
-    res.status(201).json({ message: "User registered successfully" });
+    return res.status(201).json({ message: "User registered successfully" });
 
   } catch (error) {
-    res.status(500).json({ message: "Server error", error });
+    console.log("REGISTER ERROR:", error);
+    return res.status(500).json({ message: error.message });
   }
 };
 
@@ -60,7 +66,7 @@ const login = async (req, res) => {
       { expiresIn: "1d" }
     );
 
-    res.json({
+    return res.json({
       token,
       user: {
         id: user.id,
@@ -70,8 +76,9 @@ const login = async (req, res) => {
       },
     });
 
-  } catch (error) {
-    res.status(500).json({ message: "Server error", error });
+  } catch (err) {
+    console.log("LOGIN ERROR:", err);
+    return res.status(500).json({ message: err.message });
   }
 };
 

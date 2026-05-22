@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "./sidebar.css";
 
 import {
@@ -11,6 +11,13 @@ import {
 } from "lucide-react";
 
 export default function Sidebar() {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    navigate("/login");
+  };
+
   return (
     <div className="sidebar">
 
@@ -72,6 +79,11 @@ export default function Sidebar() {
         </NavLink>
 
       </nav>
+
+      <button onClick={handleLogout} className="logout-btn">
+        Logout
+      </button>
+
     </div>
   );
 }

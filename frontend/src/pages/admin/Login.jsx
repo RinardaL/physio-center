@@ -22,11 +22,13 @@ export default function Login() {
     try {
       const res = await api.post("/auth/login", form);
 
+
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("user", JSON.stringify(res.data.user));
 
       navigate("/dashboard");
     } catch (err) {
+      console.log(err);
       alert("Invalid credentials");
     }
   };
@@ -38,8 +40,20 @@ export default function Login() {
         <h2>Login</h2>
 
         <form onSubmit={handleSubmit}>
-          <input type="email" name="email" placeholder="Email" onChange={handleChange} />
-          <input type="password" name="password" placeholder="Password" onChange={handleChange} />
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            onChange={handleChange}
+          />
+
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            onChange={handleChange}
+          />
+
           <button type="submit">Login</button>
         </form>
 

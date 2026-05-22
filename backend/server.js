@@ -9,13 +9,23 @@ const authRoutes = require("./src/routes/authRoutes")
 require("./src/models/index");
 
 const app = express();
-
+const therapistRoutes = require("./src/routes/therapistRoutes");
+const sessionRoutes = require("./src/routes/sessionRoutes");
+const exerciseRoutes = require("./src/routes/exerciseRoutes");
+const clinicalAssessmentRoutes = require("./src/routes/clinicalAssessmentRoutes");
 app.use(cors());
 app.use(express.json());
 
+
 app.use("/api/auth", authRoutes);
+app.use("/api/therapists", therapistRoutes);
+app.use("/api/sessions", sessionRoutes);
+app.use("/api/exercises", exerciseRoutes);
+app.use("/api/clinicalAssessment",clinicalAssessmentRoutes);
 
 const PORT = process.env.PORT || 3000;
+
+
 
 (async () => {
   try {

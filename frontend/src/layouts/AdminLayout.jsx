@@ -22,12 +22,6 @@ export default function AdminLayout() {
           overflowX: "hidden",
         }}
       >
-
-     
-        <button onClick={handleLogout}>
-          Logout
-        </button>
-
         <Outlet />
 
       </div>

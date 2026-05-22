@@ -23,9 +23,10 @@ export default function Register() {
     try {
       await api.post("/auth/register", form);
 
-      alert("Account created");
+      alert("Account created successfully");
       navigate("/login");
     } catch (err) {
+      console.log(err);
       alert("Register failed");
     }
   };
@@ -37,9 +38,26 @@ export default function Register() {
         <h2>Register</h2>
 
         <form onSubmit={handleSubmit}>
-          <input type="text" name="name" placeholder="Name" onChange={handleChange} />
-          <input type="email" name="email" placeholder="Email" onChange={handleChange} />
-          <input type="password" name="password" placeholder="Password" onChange={handleChange} />
+          <input
+            name="name"
+            placeholder="Name"
+            onChange={handleChange}
+          />
+
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            onChange={handleChange}
+          />
+
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            onChange={handleChange}
+          />
+
           <button type="submit">Register</button>
         </form>
 
@@ -50,7 +68,6 @@ export default function Register() {
 
       <div className="auth-side">
         <img src={logo} alt="Physio Logo" className="auth-logo" />
-        <h1>Physio Center</h1>
         <p>Management System for Therapists & Patients</p>
       </div>
 
