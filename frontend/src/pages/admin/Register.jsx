@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../../api";
 import "./auth.css";
+import logo from "../../assets/physio-logo.png";
 
 export default function Register() {
   const navigate = useNavigate();
@@ -20,7 +21,7 @@ export default function Register() {
     e.preventDefault();
 
     try {
-      await api.post("/api/auth/register", form);
+      await api.post("/auth/register", form);
 
       alert("Account created");
       navigate("/login");
@@ -31,31 +32,14 @@ export default function Register() {
 
   return (
     <div className="auth-container">
+
       <div className="auth-box">
         <h2>Register</h2>
 
         <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            name="name"
-            placeholder="Name"
-            onChange={handleChange}
-          />
-
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            onChange={handleChange}
-          />
-
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            onChange={handleChange}
-          />
-
+          <input type="text" name="name" placeholder="Name" onChange={handleChange} />
+          <input type="email" name="email" placeholder="Email" onChange={handleChange} />
+          <input type="password" name="password" placeholder="Password" onChange={handleChange} />
           <button type="submit">Register</button>
         </form>
 
@@ -63,6 +47,13 @@ export default function Register() {
           Already have an account? Login
         </p>
       </div>
+
+      <div className="auth-side">
+        <img src={logo} alt="Physio Logo" className="auth-logo" />
+        <h1>Physio Center</h1>
+        <p>Management System for Therapists & Patients</p>
+      </div>
+
     </div>
   );
 }
