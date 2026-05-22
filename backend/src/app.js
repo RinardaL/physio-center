@@ -1,10 +1,11 @@
 const express = require("express");
 const cors = require("cors");
-
+const authRoutes = require("./routes/authRoutes");
 const app = express();
 
 app.use(cors());
 app.use(express.json());
+
 
 
 const therapistRoutes = require("./routes/therapistRoutes");
@@ -19,6 +20,9 @@ const exercisePlanRoutes = require("./routes/exercisePlanRoutes");
 const paymentRoutes = require("./routes/paymentRoutes");
 
 
+app.use(cors());
+app.use(express.json());
+app.use("/api/auth", authRoutes);
 app.use("/therapists", therapistRoutes);
 app.use("/sessions", sessionRoutes);
 app.use("/exercises", exerciseRoutes);
