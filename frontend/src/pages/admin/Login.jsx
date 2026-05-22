@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import api from "../../api";;
+import api from "../../api";
+import "./auth.css";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -11,10 +12,7 @@ export default function Login() {
   });
 
   const handleChange = (e) => {
-    setForm({
-      ...form,
-      [e.target.name]: e.target.value,
-    });
+    setForm({ ...form, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
@@ -25,36 +23,65 @@ export default function Login() {
 
       localStorage.setItem("token", res.data.token);
 
-      alert("Login successful");
-
       navigate("/dashboard");
-    } catch (error) {
-      console.log(error);
-      alert("Login failed");
+    } catch (err) {
+      alert("Invalid credentials");
     }
   };
 
   return (
-    <div>
+    <div className="auth-container">
+      <div className="auth-box">
+        <h2>Login</h2>
+
+        <form onSubmit={handleSubmit}>
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            onChange={handleChange}
+          />
+
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            onChange={handleChange}
+          />
+
+          <button type="submit">Login</button>
+        </form>
+
+        <p onClick={() => navigate("/register")}>
+          Don't have an account? Register
+        </p>
+      </div>
+
+  <div className="auth-container">
+
+    {/* LEFT */}
+    <div className="auth-box">
       <h2>Login</h2>
 
       <form onSubmit={handleSubmit}>
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          onChange={handleChange}
-        />
-
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          onChange={handleChange}
-        />
-
+        <input type="email" name="email" placeholder="Email" onChange={handleChange} />
+        <input type="password" name="password" placeholder="Password" onChange={handleChange} />
         <button type="submit">Login</button>
       </form>
+
+      <p onClick={() => navigate("/register")}>
+        Create account
+      </p>
+    </div>
+
+    {/* RIGHT */}
+    <div className="auth-side">
+      <h1>Physio Center</h1>
+      <p>Management System for Therapists & Patients</p>
+    </div>
+
+  </div>
+
     </div>
   );
 }

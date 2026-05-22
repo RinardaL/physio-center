@@ -1,11 +1,12 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
+
 import ProtectedRoute from "./route/ProtectedRoute";
 import AdminLayout from "./layouts/AdminLayout";
 
 import Home from "./pages/public/Home";
 import Login from "./pages/admin/Login";
-import Navbar from "./components/Navbar";
+import Register from "./pages/admin/Register";
 
 import Dashboard from "./pages/admin/Dashboard";
 import Therapists from "./pages/admin/Therapists";
@@ -14,9 +15,7 @@ import Exercises from "./pages/admin/Exercises";
 import Equipment from "./pages/admin/Equipment";
 import Assessments from "./pages/admin/Assessments";
 
-
 export default function App() {
-
   const [darkMode, setDarkMode] = useState(() => {
     return localStorage.getItem("theme") === "dark";
   });
@@ -26,7 +25,6 @@ export default function App() {
     localStorage.setItem("theme", darkMode ? "dark" : "light");
   }, [darkMode]);
 
-   const token = localStorage.getItem("token");
   return (
     <BrowserRouter>
 
@@ -44,26 +42,24 @@ export default function App() {
 
       <Routes>
 
-       <Route path="/home" element={<Home />} />
-
-       <Route path="/navbar" element={<Home />} />
-        
-    <Route element={<ProtectedRoute />}>
-    <Route element={<AdminLayout />}>
-    <Route path="/login" element={<Login />} />
-    <Route path="/dashboard" element={<Dashboard />} />
-    <Route path="/therapists" element={<Therapists />} />
-    <Route path="/sessions" element={<Sessions />} />
-    <Route path="/exercises" element={<Exercises />} />
-    <Route path="/equipment" element={<Equipment />} />
-    <Route path="/assessments" element={<Assessments />} />
-    
-      </Route>
       
-     </Route>
-  
-   </Routes>
-    
+        <Route path="/home" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+
+        
+        <Route element={<ProtectedRoute />}>
+          <Route element={<AdminLayout />}>
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/therapists" element={<Therapists />} />
+            <Route path="/sessions" element={<Sessions />} />
+            <Route path="/exercises" element={<Exercises />} />
+            <Route path="/equipment" element={<Equipment />} />
+            <Route path="/assessments" element={<Assessments />} />
+          </Route>
+        </Route>
+
+      </Routes>
 
     </BrowserRouter>
   );
