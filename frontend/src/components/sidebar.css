@@ -56,16 +56,14 @@ body {
   color: #8a6f64;
   font-size: 14px;
 }
-
-
 .menu {
   display: flex;
   flex-direction: column;
   gap: 10px;
 
-  padding-bottom: 80px;
+  flex: 1;
+  
 }
-
 
 .link {
   text-decoration: none;
@@ -135,7 +133,7 @@ body {
 }
 
 .logout-btn {
-  margin-top: 20px;
+  margin-top: -5;
   padding: 10px;
   background: red;
   color: white;

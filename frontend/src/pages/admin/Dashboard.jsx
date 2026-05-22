@@ -17,7 +17,7 @@ export default function Dashboard() {
     localStorage.getItem("darkMode") === "true"
   );
 
-  // LOAD DATA
+  
   useEffect(() => {
     const loadStats = async () => {
       try {
@@ -42,7 +42,7 @@ export default function Dashboard() {
     loadStats();
   }, []);
 
-  // DARK MODE
+  
   useEffect(() => {
     document.body.classList.toggle("dark", darkMode);
     localStorage.setItem("darkMode", darkMode);
@@ -51,7 +51,7 @@ export default function Dashboard() {
   return (
     <div className="dashboard">
 
-      {/* DARK MODE ICON */}
+      
       <span
         onClick={() => setDarkMode(prev => !prev)}
         className="themeIcon"
@@ -59,13 +59,13 @@ export default function Dashboard() {
         {darkMode ? "☀️" : "🌙"}
       </span>
 
-      {/* HERO */}
+      
       <div className="hero">
-        <h1>Welcome back 👋</h1>
+        <h1>Welcome to Dashboard</h1>
         <p>Here’s what’s happening in your clinic today.</p>
       </div>
 
-      {/* STATS */}
+      
       <div className="cards">
         <div className="card"><h2>{stats.therapists}</h2><p>Therapists</p></div>
         <div className="card"><h2>{stats.sessions}</h2><p>Sessions</p></div>
@@ -73,7 +73,7 @@ export default function Dashboard() {
         <div className="card"><h2>{stats.assessments}</h2><p>Assessments</p></div>
       </div>
 
-      {/* GRID */}
+      
       <div className="dashboardGrid">
 
         <div className="section">

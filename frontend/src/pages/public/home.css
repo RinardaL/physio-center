@@ -242,6 +242,123 @@ section {
 .feature h4 {
   color: var(--dark);
 }
+.about {
+  padding: 80px 20px;
+  background: linear-gradient(180deg, #f6f7fb 0%, #ffffff 100%);
+  min-height: 100vh;
+}
 
+/* HERO */
+.about-hero {
+  text-align: center;
+  margin-bottom: 70px;
+}
 
+.about-hero h1 {
+  font-size: 48px;
+  font-weight: 700;
+  color: #111827;
+  letter-spacing: -1px;
+}
+
+.about-hero p {
+  color: #6b7280;
+  max-width: 650px;
+  margin: 15px auto 0;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+/* STACK */
+.about-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+}
+
+/* CARD */
+.about-card {
+  width: 100%;
+  max-width: 850px;
+
+  background: white;
+  padding: 30px;
+
+  border-radius: 18px;
+  border: 1px solid #eef0f3;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+
+  transition: all 0.25s ease;
+}
+
+.about-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.08);
+}
+
+.about-card h2 {
+  font-size: 22px;
+  margin-bottom: 12px;
+  color: #111827;
+}
+
+.about-card p,
+.about-card li {
+  color: #6b7280;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* SPECIAL CARD */
+.highlight {
+  background: linear-gradient(135deg, #3b2a06);
+  color: rgb(74, 45, 12);
+  border: none;
+}
+
+.highlight h2,
+.highlight p,
+.highlight li {
+  color: rgb(60, 41, 9);
+}
+
+/* STATS */
+.about-stats {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 70px;
+  flex-wrap: wrap;
+}
+
+.stat {
+  width: 220px;
+  background: rgb(246, 226, 195);
+
+  padding: 25px;
+  border-radius: 16px;
+
+  text-align: center;
+
+  border: 1px solid #c99b76;
+
+  box-shadow: 0 10px 25px rgba(0,0,0,0.04);
+  transition: 0.2s;
+}
+
+.stat:hover {
+  transform: translateY(-5px);
+}
+
+.stat h3 {
+  font-size: 30px;
+  color: #2a1f03;
+}
+
+.stat p {
+  color: #351f02;
+  font-size: 14px;
+}
 
