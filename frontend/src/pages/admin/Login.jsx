@@ -21,8 +21,11 @@ export default function Login() {
     try {
       const res = await api.post("/api/auth/login", form);
 
+      // ruaj token + user (shumë e rëndësishme për role)
       localStorage.setItem("token", res.data.token);
+      localStorage.setItem("user", JSON.stringify(res.data.user));
 
+      // redirect
       navigate("/dashboard");
     } catch (err) {
       alert("Invalid credentials");
@@ -31,6 +34,8 @@ export default function Login() {
 
   return (
     <div className="auth-container">
+
+      {/* LEFT SIDE */}
       <div className="auth-box">
         <h2>Login</h2>
 
@@ -57,30 +62,11 @@ export default function Login() {
         </p>
       </div>
 
-  <div className="auth-container">
-
-    {/* LEFT */}
-    <div className="auth-box">
-      <h2>Login</h2>
-
-      <form onSubmit={handleSubmit}>
-        <input type="email" name="email" placeholder="Email" onChange={handleChange} />
-        <input type="password" name="password" placeholder="Password" onChange={handleChange} />
-        <button type="submit">Login</button>
-      </form>
-
-      <p onClick={() => navigate("/register")}>
-        Create account
-      </p>
-    </div>
-
-    {/* RIGHT */}
-    <div className="auth-side">
-      <h1>Physio Center</h1>
-      <p>Management System for Therapists & Patients</p>
-    </div>
-
-  </div>
+      {/* RIGHT SIDE */}
+      <div className="auth-side">
+        <h1>Physio Center</h1>
+        <p>Management System for Therapists & Patients</p>
+      </div>
 
     </div>
   );

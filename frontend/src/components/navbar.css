@@ -6,38 +6,71 @@
 
   display: flex;
   align-items: center;
+  justify-content: space-between; /* 👈 KJO është çelësi */
 
   padding: 10px 60px;
   z-index: 1000;
 
   background: rgba(255, 255, 255, 0.15);
-
+  backdrop-filter: blur(10px);
 }
 
-
 .logo {
-  font-size: 18px;
-  font-weight: 600;
-  color: dark brown;
-   transform: translateY(8px);
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 45px; 
+  object-fit: contain;
 }
 
 
 .navLinks {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-
   display: flex;
   gap: 24px;
 
   list-style: none;
   margin: 0;
   padding: 0;
+
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .navLinks li {
   font-size: 14px;
   color: white;
   cursor: pointer;
+}
+.navLinks a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  position: relative;
+  padding-bottom: 4px;
+  transition: 0.3s;
+}
+
+.navLinks a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background: #a8744f;
+  transition: 0.3s;
+}
+
+.navLinks a:hover::after {
+  width: 100%;
+}
+.navLinks a.active {
+  color: #a8744f;
+}
+
+.navLinks a.active::after {
+  width: 100%;
 }

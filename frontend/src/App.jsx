@@ -5,6 +5,7 @@ import ProtectedRoute from "./route/ProtectedRoute";
 import AdminLayout from "./layouts/AdminLayout";
 
 import Home from "./pages/public/Home";
+import About from "./pages/admin/About";
 import Login from "./pages/admin/Login";
 import Register from "./pages/admin/Register";
 
@@ -46,16 +47,20 @@ export default function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-
+        <Route path="/about" element={<About />} />
+            
         
         <Route element={<ProtectedRoute />}>
           <Route element={<AdminLayout />}>
+
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/therapists" element={<Therapists />} />
             <Route path="/sessions" element={<Sessions />} />
             <Route path="/exercises" element={<Exercises />} />
             <Route path="/equipment" element={<Equipment />} />
             <Route path="/assessments" element={<Assessments />} />
+            <Route path="/about" element={<About />} />
+            
           </Route>
         </Route>
 
