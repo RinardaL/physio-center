@@ -17,25 +17,31 @@ export default function Login() {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    try {
-      const res = await api.post("/auth/login", form);
+  try {
+    const res = await api.post("/auth/login", form);
 
+    localStorage.setItem("token", res.data.token);
+    localStorage.setItem("user", JSON.stringify(res.data.user));
 
-      localStorage.setItem("token", res.data.token);
-      localStorage.setItem("user", JSON.stringify(res.data.user));
+    const role = res.data.user.role;
 
+    setForm({ email: "", password: "" });
+
+    if (role === "therapist") {
       navigate("/dashboard");
-    } catch (err) {
-      console.log(err);
-      alert("Invalid credentials");
+    } else {
+      navigate("/home");
     }
-  };
+
+  } catch (err) {
+    alert(err.response?.data?.message || "Invalid credentials");
+  }
+};
 
   return (
     <div className="auth-container">
-
       <div className="auth-box">
         <h2>Login</h2>
 
@@ -66,7 +72,6 @@ export default function Login() {
         <img src={logo} alt="Physio Logo" className="auth-logo" />
         <p>Management System for Therapists & Patients</p>
       </div>
-
     </div>
   );
 }
