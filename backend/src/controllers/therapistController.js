@@ -1,6 +1,6 @@
 const { Therapist } = require("../models");
 
-// CREATE
+
 const createTherapist = async (req, res) => {
   try {
     const therapist = await Therapist.create(req.body);
@@ -10,7 +10,7 @@ const createTherapist = async (req, res) => {
   }
 };
 
-// GET ALL
+
 const getTherapists = async (req, res) => {
   try {
     const therapists = await Therapist.findAll();
@@ -20,7 +20,7 @@ const getTherapists = async (req, res) => {
   }
 };
 
-// GET BY ID
+
 const getTherapist = async (req, res) => {
   try {
     const therapist = await Therapist.findByPk(req.params.id);
@@ -31,7 +31,7 @@ const getTherapist = async (req, res) => {
   }
 };
 
-// UPDATE
+
 const updateTherapist = async (req, res) => {
   try {
     const therapist = await Therapist.findByPk(req.params.id);
@@ -44,7 +44,7 @@ const updateTherapist = async (req, res) => {
   }
 };
 
-// DELETE
+
 const deleteTherapist = async (req, res) => {
   try {
     const therapist = await Therapist.findByPk(req.params.id);

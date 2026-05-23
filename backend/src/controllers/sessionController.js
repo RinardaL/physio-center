@@ -1,5 +1,5 @@
 const { Session } = require("../models");
-// CREATE
+
 const createSession = async (req, res) => {
   try {
     const session = await Session.create(req.body);
@@ -9,7 +9,7 @@ const createSession = async (req, res) => {
   }
 };
 
-// GET ALL 
+
 const getSessions = async (req, res) => {
   try {
     const sessions = await Session.findAll({
@@ -21,7 +21,7 @@ const getSessions = async (req, res) => {
   }
 };
 
-// GET BY ID
+
 const getSession = async (req, res) => {
   try {
     const session = await Session.findByPk(req.params.id);
@@ -32,7 +32,7 @@ const getSession = async (req, res) => {
   }
 };
 
-// UPDATE
+
 const updateSession = async (req, res) => {
   try {
     const session = await Session.findByPk(req.params.id);
@@ -45,7 +45,7 @@ const updateSession = async (req, res) => {
   }
 };
 
-// DELETE
+
 const deleteSession = async (req, res) => {
   try {
     const session = await Session.findByPk(req.params.id);
