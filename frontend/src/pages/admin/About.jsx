@@ -1,3 +1,4 @@
+import Navbar from "../../components/Navbar";
 import "../../index.css";
 
 import rehabImg from "../../assets/rehab-room.png";
@@ -5,187 +6,124 @@ import wellnessImg from "../../assets/wellness-snack.png";
 
 export default function About() {
   return (
-    <div className="about">
+    <>
+      <Navbar />
 
-      
-      <div className="about-hero">
-        <div className="hero-overlay"></div>
+      <div className="about-page">
 
-        <img src={rehabImg} alt="Physiotherapy Clinic" />
+        {/* HERO */}
+        <section className="about-hero">
 
-        <div className="hero-content">
-          <h1>About Our Clinic</h1>
-          <p>
-            We are a modern physiotherapy center dedicated to helping patients
-            recover, move better, and live pain-free lives.
-          </p>
-        </div>
-      </div>
+          <img src={rehabImg} alt="Physiotherapy Clinic" />
 
+          <div className="hero-overlay"></div>
 
-      <div className="about-section about-grid">
-        <div className="about-text">
-          <h2>Who We Are</h2>
-          <p>
-            Our physiotherapy clinic provides professional care for patients
-            recovering from injuries, surgeries, or chronic pain conditions.
-            We combine experience, modern techniques, and personalized treatment
-            plans to ensure the best recovery outcomes.
-          </p>
-        </div>
+          <div className="hero-content">
+            <span>PHYSIOTHERAPY CENTER</span>
 
-        <div className="about-image-card">
-          <img src={wellnessImg} alt="Healthy Wellness" />
-        </div>
-      </div>
-
-    
-      <div className="about-section glass-card">
-        <h2>Our Mission</h2>
-        <p>
-          Our mission is to improve the quality of life for every patient by
-          restoring movement, reducing pain, and supporting long-term health
-          through effective physiotherapy treatments.
-        </p>
-      </div>
-
-
-      <div className="about-section">
-        <h2>What We Offer</h2>
-
-        <div className="services-grid">
-          <div className="service-card">
-            <span>💪</span>
-            <p>Personalized physiotherapy treatment plans</p>
+            <h1>Professional Care For Your Recovery</h1>
+            <p>
+             Recovery is not just the restoration of movement, 
+             but the restoration of a person’s confidence in their own body.
+            </p>
           </div>
 
-          <div className="service-card">
-            <span>🏃</span>
-            <p>Sports injury rehabilitation</p>
+        </section>
+
+        {/* WHO WE ARE */}
+        <section className="about-section about-grid">
+
+          <div className="about-text">
+
+            <span>ABOUT US</span>
+
+            <h2>Focused On Recovery & Wellness</h2>
+
+            <p>
+              Our clinic provides professional physiotherapy services designed
+              to support recovery, improve mobility, and help patients return
+              to daily activities with confidence.
+            </p>
+
+            <p>
+              We believe every patient deserves personalized treatment and
+              long-term support throughout their rehabilitation journey.
+            </p>
+
           </div>
 
-          <div className="service-card">
-            <span>🩺</span>
-            <p>Manual therapy & pain management</p>
+          <div className="about-image">
+            <img src={wellnessImg} alt="Clinic" />
           </div>
 
-          <div className="service-card">
-            <span>🦴</span>
-            <p>Post-surgery recovery programs</p>
+        </section>
+
+        {/* MISSION */}
+        <section className="mission-section">
+
+          <div className="mission-card">
+            <h3>Our Mission</h3>
+
+            <p>
+              We are a modern physiotherapy clinic dedicated to restoring movement,
+              reducing pain, and improving the overall quality of life for our patients.
+              Our approach is built on a combination of clinical expertise, personalized treatment plans,
+              and a deep understanding of human movement.
+              Every patient is unique, and so is every recovery journey.
+
+            </p>
           </div>
 
-          <div className="service-card">
-            <span>📈</span>
-            <p>Exercise plans and patient tracking</p>
+          <div className="mission-card">
+            <h3>Patient Care</h3>
+
+            <p>
+              We focus on creating a comfortable environment where every patient
+              receives professional attention and personalized support.
+              We work closely with each patient to set realistic goals, track progress, and adjust treatments as needed.
+              Our mission is not only to treat the injury, but to help patients regain confidence in their bodies
+              and return to an active, pain-free lifestyle.
+
+
+            </p>
           </div>
 
-          <div className="service-card">
-            <span>📅</span>
-            <p>Online appointment booking system</p>
+          <div className="mission-card">
+            <h3>Modern Approach</h3>
+
+            <p>
+             
+            One of the biggest challenges in rehabilitation is consistency and patience. 
+            Recovery is not always linear, and many patients face setbacks, pain flare-ups, or slow progress.
+            That’s why our clinic emphasizes continuous support, education, and motivation throughout the entire recovery process.
+
+
+            </p>
           </div>
-        </div>
+
+        </section>
+
+        {/* STATS */}
+        <section className="stats-section">
+
+          <div className="stat-box">
+            <h2>10+</h2>
+            <p>Years Experience</p>
+          </div>
+
+          <div className="stat-box">
+            <h2>500+</h2>
+            <p>Recovered Patients</p>
+          </div>
+
+          <div className="stat-box">
+            <h2>100%</h2>
+            <p>Care & Commitment</p>
+          </div>
+
+        </section>
+
       </div>
-
-<div className="about-section tips-section">
-  <h2>Daily Wellness Tips</h2>
-
-  <div className="tips-grid">
-    <div className="tip-card">
-      <span>💧</span>
-      <h4>Stay Hydrated</h4>
-      <p>Drink enough water daily to support muscle recovery and joint health.</p>
-    </div>
-
-    <div className="tip-card">
-      <span>🧘</span>
-      <h4>Stretch Daily</h4>
-      <p>Light stretching improves flexibility and reduces pain stiffness.</p>
-    </div>
-
-    <div className="tip-card">
-      <span>🚶</span>
-      <h4>Move Often</h4>
-      <p>Avoid long sitting hours. Short walks improve circulation.</p>
-    </div>
-
-    <div className="tip-card">
-      <span>🥗</span>
-      <h4>Eat Healthy</h4>
-      <p>Balanced nutrition supports faster healing and energy levels.</p>
-    </div>
-  </div>
-</div>
-
-<div className="about-section timeline-section">
-  <h2>Recovery Process</h2>
-
-  <div className="timeline">
-    <div className="timeline-item">
-      <div className="dot"></div>
-      <div>
-        <h4>Step 1: Assessment</h4>
-        <p>We evaluate your condition and create a personalized plan.</p>
-      </div>
-    </div>
-
-    <div className="timeline-item">
-      <div className="dot"></div>
-      <div>
-        <h4>Step 2: Pain Reduction</h4>
-        <p>Manual therapy and treatment to reduce pain and inflammation.</p>
-      </div>
-    </div>
-
-    <div className="timeline-item">
-      <div className="dot"></div>
-      <div>
-        <h4>Step 3: Rehabilitation</h4>
-        <p>Exercises to restore strength, mobility, and balance.</p>
-      </div>
-    </div>
-
-    <div className="timeline-item">
-      <div className="dot"></div>
-      <div>
-        <h4>Step 4: Recovery</h4>
-        <p>Final stage focusing on full return to daily activities.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-      <div className="about-section about-grid reverse">
-        <div className="about-image-card">
-          <img src={rehabImg} alt="Rehabilitation Equipment" />
-        </div>
-
-        <div className="about-text">
-          <h2>Why Choose Us</h2>
-          <p>
-            We focus on patient-centered care, modern rehabilitation methods,
-            and continuous monitoring of progress. Our therapists ensure every
-            patient receives the attention and treatment they need for full recovery.
-          </p>
-        </div>
-      </div>
-
-      <div className="about-stats">
-        <div className="stat-card">
-          <h3>10+</h3>
-          <p>Years Experience</p>
-        </div>
-
-        <div className="stat-card">
-          <h3>500+</h3>
-          <p>Recovered Patients</p>
-        </div>
-
-        <div className="stat-card">
-          <h3>100%</h3>
-          <p>Care & Commitment</p>
-        </div>
-      </div>
-
-    </div>
+    </>
   );
 }

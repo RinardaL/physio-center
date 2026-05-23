@@ -8,6 +8,7 @@ import Home from "./pages/public/Home";
 import About from "./pages/admin/About";
 import Login from "./pages/admin/Login";
 import Register from "./pages/admin/Register";
+import Service from "./pages/public/Service";
 
 import Dashboard from "./pages/admin/Dashboard";
 import Therapists from "./pages/admin/Therapists";
@@ -22,13 +23,14 @@ export default function App() {
       <Routes>
 
         {/* PUBLIC */}
-        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
 
         {/* ANY LOGGED USER */}
         <Route element={<ProtectedRoute />}>
           <Route path="/about" element={<About />} />
+          <Route path="/services" element={<Service/>}/>
         </Route>
 
         {/* THERAPIST ONLY */}
