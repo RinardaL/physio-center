@@ -6,7 +6,7 @@
   --white: #ffffff;
 }
 
-/* GLOBAL */
+
 body {
   margin: 0;
   background: var(--bg);
@@ -23,12 +23,12 @@ p {
   font-size: 16px;
 }
 
-/* SECTION DEFAULT */
+
 section {
   padding: 100px 80px;
 }
 
-/* HERO FIX (FULL SCREEN) */
+
 .home {
   padding: 0;
 }
@@ -73,7 +73,7 @@ section {
   opacity: 0.9;
 }
 
-/* BUTTONS */
+
 .heroButtons {
   display: flex;
   gap: 12px;
@@ -97,7 +97,7 @@ section {
   cursor: pointer;
 }
 
-/* SERVICES */
+
 .services {
   background: var(--bg);
 }
@@ -248,7 +248,7 @@ section {
   min-height: 100vh;
 }
 
-/* HERO */
+
 .about-hero {
   text-align: center;
   margin-bottom: 70px;
@@ -269,7 +269,7 @@ section {
   line-height: 1.6;
 }
 
-/* STACK */
+
 .about-grid {
   display: flex;
   flex-direction: column;
@@ -277,7 +277,7 @@ section {
   align-items: center;
 }
 
-/* CARD */
+
 .about-card {
   width: 100%;
   max-width: 850px;
@@ -311,7 +311,7 @@ section {
   line-height: 1.7;
 }
 
-/* SPECIAL CARD */
+
 .highlight {
   background: linear-gradient(135deg, #3b2a06);
   color: rgb(74, 45, 12);
@@ -324,7 +324,7 @@ section {
   color: rgb(60, 41, 9);
 }
 
-/* STATS */
+
 .about-stats {
   display: flex;
   justify-content: center;
