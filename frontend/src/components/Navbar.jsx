@@ -18,7 +18,7 @@ export default function Navbar() {
 
         <li>
           <NavLink to="/services" className={({ isActive }) => isActive ? "active" : ""}>
-            Services
+            Services   
           </NavLink>
         </li>
 

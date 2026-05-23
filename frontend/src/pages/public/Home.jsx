@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import physioImg from "../../assets/physio-home.png";
 import "./home.css";
 import physio1 from "../../assets/physiotherapy.png";
@@ -8,11 +9,13 @@ import aboutImg from "../../assets/aboutImg.png";
 import Navbar from "../../components/Navbar";
 
 export default function Home() {
+  const navigate = useNavigate();
+
   return (
-    
     <>
       <Navbar />
-      
+
+      {/* HERO */}
       <section className="home">
         <div className="heroImage">
           <img src={physioImg} alt="Physio" />
@@ -29,15 +32,26 @@ export default function Home() {
               </p>
 
               <div className="heroButtons">
-                <button className="primaryBtn">Book Appointment</button>
-                <button className="secondaryBtn">Learn More</button>
+                <button
+                  className="primaryBtn"
+                  onClick={() => navigate("/dashboard")}
+                >
+                  Book Appointment
+                </button>
+
+                <button
+                  className="secondaryBtn"
+                  onClick={() => navigate("/about")}
+                >
+                  Learn More
+                </button>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      
+      {/* SERVICES */}
       <section className="services">
         <div className="sectionTitle">
           <span>OUR SERVICES</span>
@@ -46,21 +60,24 @@ export default function Home() {
             Treatments Designed <br />
             For Your Recovery
           </h2>
-         <p>Tailored physiotherapy programs built to eliminate pain,
-            restore full mobility, and help you return to peak function and everyday life with confidence.</p>
+
+          <p>
+            Tailored physiotherapy programs built to eliminate pain, restore full
+            mobility, and help you return to peak function and everyday life.
+          </p>
         </div>
 
         <div className="serviceGrid">
-          <div className="serviceCard">
+          <div className="serviceCard" onClick={() => navigate("/services")}>
             <img src={physio1} alt="" />
             <div className="serviceContent">
               <h3>Physiotherapy</h3>
-              <p>Personalized therapy programs focused on reducing pain and improving mobility.</p>
+              <p>Personalized therapy programs focused on reducing pain.</p>
               <button>Learn More →</button>
             </div>
           </div>
 
-          <div className="serviceCard">
+          <div className="serviceCard" onClick={() => navigate("/services")}>
             <img src={physio2} alt="" />
             <div className="serviceContent">
               <h3>Sports Injury</h3>
@@ -69,7 +86,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="serviceCard">
+          <div className="serviceCard" onClick={() => navigate("/services")}>
             <img src={physio3} alt="" />
             <div className="serviceContent">
               <h3>Manual Therapy</h3>
@@ -78,7 +95,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="serviceCard">
+          <div className="serviceCard" onClick={() => navigate("/services")}>
             <img src={physio4} alt="" />
             <div className="serviceContent">
               <h3>Rehabilitation</h3>
@@ -89,11 +106,13 @@ export default function Home() {
         </div>
 
         <div className="appointmentBtn">
-          <button>Book An Appointment</button>
+          <button onClick={() => navigate("/about")}>
+             Book An Appointment
+           </button>
         </div>
       </section>
 
-      
+      {/* ABOUT PREVIEW */}
       <section className="about">
         <div className="aboutImage">
           <img src={aboutImg} alt="About Physio" />
@@ -114,35 +133,23 @@ export default function Home() {
 
           <p>
             Our clinic provides personalized physiotherapy focused on recovery,
-            rehabilitation, and improving your quality of life through expert care.
+            rehabilitation, and improving your quality of life.
           </p>
 
           <div className="aboutFeatures">
             <div className="feature">
               <h4>Personalized Care</h4>
-              <p>
-                Treatment plans tailored to each patient’s condition.
-                We focus on creating treatment plans that are fully adapted to each patient’s goals, and recovery progress.
-                Every session is designed to target your specific needs for faster and more effective healing.
-              </p>
+              <p>Tailored treatment plans for each patient.</p>
             </div>
 
             <div className="feature">
               <h4>Modern Equipment</h4>
-              <p>
-                Our clinic uses advanced physiotherapy and rehabilitation technology to ensure high-quality treatment.
-                From recovery tools to specialized therapy devices,
-                 everything is designed to support safe and efficient recovery.
-              </p>
+              <p>Advanced rehab technology for better recovery.</p>
             </div>
 
             <div className="feature">
               <h4>Expert Therapists</h4>
-              <p>
-                You are treated by experienced physiotherapists who understand injury recovery in depth. 
-                They guide you through every step of the process, focusing on long-term results,
-                pain reduction, and improved mobility.
-              </p>
+              <p>Experienced professionals guiding your recovery.</p>
             </div>
           </div>
         </div>
