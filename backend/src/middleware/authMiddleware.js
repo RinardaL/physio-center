@@ -1,8 +1,4 @@
 const jwt = require("jsonwebtoken");
-const authMiddleware = require("./middleware/authMiddleware");
-
-app.use("/patients", authMiddleware, patientRoutes);
-app.use("/sessions", authMiddleware, sessionRoutes);
 
 const authMiddleware = (req, res, next) => {
   const authHeader = req.headers.authorization;
@@ -14,10 +10,12 @@ const authMiddleware = (req, res, next) => {
   const token = authHeader.split(" ")[1];
 
   try {
-    const verified = jwt.verify(token, "secretkey");
-    req.user = verified;
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    req.user = decoded;
     next();
-  } catch (error) {
-    res.status(403).json({ message: "Invalid token" });
+  } catch (err) {
+    return res.status(401).json({ message: "Invalid token" });
   }
 };
+
+module.exports = authMiddleware;
