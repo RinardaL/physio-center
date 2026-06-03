@@ -8,12 +8,10 @@ export default function Payment() {
 
   const [formData, setFormData] = useState({
     amount: "",
-    payment_method: "",
-    status: "pending",
-    payment_date: "",
+    payment_method: "card",
   });
 
-  // LOAD
+  // LOAD PAYMENTS
   const loadPayments = async () => {
     try {
       const res = await api.get("/payments");
@@ -35,26 +33,18 @@ export default function Payment() {
     });
   };
 
-  // CREATE
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  // STRIPE PAYMENT INIT
+ const handlePay = async () => {
+  try {
+    const res = await api.post("/stripe/create-checkout-session", {
+      amount,
+    });
 
-    try {
-      await api.post("/payments", formData);
-
-      setFormData({
-        amount: "",
-        payment_method: "",
-        status: "pending",
-        payment_date: "",
-      });
-
-      setShowForm(false);
-      loadPayments();
-    } catch (err) {
-      console.log(err);
-    }
-  };
+    window.location.href = res.data.url;
+  } catch (err) {
+    console.log(err);
+  }
+};
 
   // SEARCH
   const filtered = payments.filter((p) => {
@@ -73,7 +63,7 @@ export default function Payment() {
       {/* HERO */}
       <div className="hero">
         <h1>Payments</h1>
-        <p>Manage patient payments and transactions</p>
+        <p>Manage patient payments with Stripe integration</p>
       </div>
 
       {/* TOOLBAR */}
@@ -90,7 +80,7 @@ export default function Payment() {
           className="primaryBtn"
           onClick={() => setShowForm(true)}
         >
-          + Add Payment
+          + New Stripe Payment
         </button>
 
       </div>
@@ -118,15 +108,13 @@ export default function Payment() {
               filtered.map((p) => (
                 <tr key={p.payment_id}>
                   <td>
-                    <strong>${p.amount}</strong>
+                    <strong>€ {p.amount}</strong>
                   </td>
 
                   <td>{p.payment_method}</td>
 
                   <td>
-                    <span className="badge">
-                      {p.status}
-                    </span>
+                    <span className="badge">{p.status}</span>
                   </td>
 
                   <td>
@@ -148,46 +136,29 @@ export default function Payment() {
             className="modalBox"
             onClick={(e) => e.stopPropagation()}
           >
-            <h2>Add Payment</h2>
+            <h2>Stripe Payment</h2>
 
-            <form onSubmit={handleSubmit} className="form">
+            <form onSubmit={handleStripePayment} className="form">
 
               <input
                 type="number"
                 name="amount"
-                placeholder="Amount"
+                placeholder="Amount (€)"
                 value={formData.amount}
                 onChange={handleChange}
                 required
               />
 
-              <input
+              <select
                 name="payment_method"
-                placeholder="Payment Method (cash, card, bank)"
                 value={formData.payment_method}
                 onChange={handleChange}
-                required
-              />
-
-              <select
-                name="status"
-                value={formData.status}
-                onChange={handleChange}
               >
-                <option value="pending">Pending</option>
-                <option value="paid">Paid</option>
-                <option value="failed">Failed</option>
+                <option value="card">Card (Stripe)</option>
               </select>
 
-              <input
-                type="date"
-                name="payment_date"
-                value={formData.payment_date}
-                onChange={handleChange}
-              />
-
               <button className="primaryBtn" type="submit">
-                Save Payment
+                Pay with Stripe
               </button>
 
             </form>

@@ -18,6 +18,7 @@ const treatmentRoutes = require("./src/routes/treatmentRoutes");
 const treatmentPlanRoutes = require("./src/routes/treatmentPlanRoutes");
 const exercisePlanRoutes = require("./src/routes/exercisePlanRoutes");
 const paymentRoutes = require("./src/routes/paymentRoutes");
+const stripeRoutes = require("./src/routes/stripeRoutes");
 app.use(cors());
 app.use(express.json());
 
@@ -32,6 +33,9 @@ app.use("/api/treatments",treatmentRoutes);
 app.use("/api/treatment-plans",treatmentPlanRoutes);
 app.use("/api/exercise-plans",exercisePlanRoutes);
 app.use("/api/payments",paymentRoutes);
+app.use("/api/stripe", stripeRoutes);
+app.use("/api/stripe/webhook", express.raw({ type: "application/json" }));
+app.use(express.json());
 
 const PORT = process.env.PORT || 3000;
 
