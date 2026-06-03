@@ -74,3 +74,18 @@
 .navLinks a.active::after {
   width: 100%;
 }
+
+.nav-btn {
+  background: #a8744f;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: 0.3s;
+}
+
+.nav-btn:hover {
+  background: #915c3f;
+}

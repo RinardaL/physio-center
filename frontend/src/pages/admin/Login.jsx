@@ -32,7 +32,7 @@ export default function Login() {
     if (role === "therapist") {
       navigate("/dashboard");
     } else {
-      navigate("/home");
+      navigate("/");
     }
 
   } catch (err) {

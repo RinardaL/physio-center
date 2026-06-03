@@ -1,12 +1,18 @@
 import "./navbar.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import logo from "../assets/physio-logo.png";
+
 export default function Navbar() {
+  const navigate = useNavigate();
+
+  const user = JSON.parse(localStorage.getItem("user"));
+
   return (
     <nav className="navbar">
-    <div className="logo">
-    <img src={logo} alt="Physio Logo" />
-  </div>
+      
+      <div className="logo">
+        <img src={logo} alt="Physio Logo" />
+      </div>
 
       <ul className="navLinks">
 
@@ -18,7 +24,7 @@ export default function Navbar() {
 
         <li>
           <NavLink to="/services" className={({ isActive }) => isActive ? "active" : ""}>
-            Services   
+            Services
           </NavLink>
         </li>
 
@@ -28,11 +34,23 @@ export default function Navbar() {
           </NavLink>
         </li>
 
-          <li>
+        <li>
           <NavLink to="/therapist" className={({ isActive }) => isActive ? "active" : ""}>
             Therapists
           </NavLink>
-</li>
+        </li>
+
+        {user?.role === "therapist" && (
+          <li>
+            <button
+              className="nav-btn"
+              onClick={() => navigate("/dashboard")}
+            >
+              Dashboard
+            </button>
+          </li>
+        )}
+
       </ul>
     </nav>
   );
