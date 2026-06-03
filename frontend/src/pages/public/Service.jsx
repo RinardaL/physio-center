@@ -1,4 +1,5 @@
 import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
 import "../../index.css";
 import physio1 from "../../assets/physiotherapy.png";
 import physio2 from "../../assets/sportsinjury.png";
@@ -213,6 +214,10 @@ export default function Service() {
   </div>
 
 </section>
-     </>
+
+    {/* FOOTER */}
+      <Footer />
+    </>
+     
   );
 }

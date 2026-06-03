@@ -7,6 +7,8 @@ import physio3 from "../../assets/manualtherapy.png";
 import physio4 from "../../assets/rehabilitation.png";
 import aboutImg from "../../assets/aboutImg.png";
 import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
+
 
 export default function Home() {
   const navigate = useNavigate();
@@ -124,7 +126,7 @@ export default function Home() {
         </div>
 
         <div className="aboutContent">
-          <span>ABOUT US</span>
+          <span>OUR CLINIC</span>
 
           <h2>
             Helping You Restore Movement <br />
@@ -154,6 +156,8 @@ export default function Home() {
           </div>
         </div>
       </section>
-    </>
+          {/* FOOTER */}
+            <Footer />
+          </>
   );
 }

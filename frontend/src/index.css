@@ -148,7 +148,7 @@ button:hover {
 .about-page {
   width: 100%;
   min-height: 100vh;
-  background:  #f3dddd;
+  background: #f8f2ee;
   color: #3e3128;
 }
 
@@ -156,7 +156,7 @@ button:hover {
 .about-hero {
   position: relative;
   width: 100%;
-  height: 500px;
+  height: 520px;
   overflow: hidden;
 }
 
@@ -164,13 +164,18 @@ button:hover {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(60%);
+  filter: brightness(55%);
+  transform: scale(1.02);
 }
 
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(45, 33, 25, 0.163);
+  background: linear-gradient(
+    to right,
+    rgba(106, 85, 70, 0),
+    rgba(254, 254, 254, 0)
+  );
 }
 
 .hero-content {
@@ -178,100 +183,174 @@ button:hover {
   top: 50%;
   left: 8%;
   transform: translateY(-50%);
-  max-width: 650px;
+  max-width: 700px;
   color: white;
 }
 
 .hero-content span {
   letter-spacing: 3px;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: #e8d7c5;
 }
 
 .hero-content h1 {
-  font-size: 4rem;
+  font-size: 3.6rem;
   font-weight: 300;
   margin: 15px 0;
   line-height: 1.1;
 }
 
 .hero-content p {
-  
-  color: #f1e8df;
-  font-size: 1.05rem;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #f3e9e2;
 }
 
 /* SECTION */
 .about-section {
-  max-width: 1300px;
+  max-width: 1200px;
   margin: auto;
-  padding: 100px 40px;
+  padding: 100px 30px;
 }
 
-.about-grid {
+/* IMAGE */
+.about-image-bottom {
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+}
+
+.about-image-bottom img {
+  width: 100%;
+  max-width: 900px;
+  border-radius: 18px;
+  object-fit: cover;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0);
+}
+
+/* RESPONSIVE */
+@media (max-width: 950px) {
+
+  .hero-content h1 {
+    font-size: 2.4rem;
+  }
+
+  .hero-content {
+    left: 6%;
+    right: 6%;
+  }
+
+  .about-section {
+    padding: 70px 20px;
+  }
+
+ 
+}
+.why-section {
+  max-width: 1200px;
+  margin: auto;
+  padding: 100px 30px;
+
   display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  gap: 70px;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
   align-items: center;
 }
 
-.about-text span {
-  color: #9b7b67;
-  letter-spacing: 2px;
-  font-size: 0.9rem;
-}
-
-.about-text h2 {
+/* TEXT SIDE */
+.why-text h2 {
   font-size: 3rem;
-  margin: 15px 0 25px;
   font-weight: 300;
+  margin-bottom: 10px;
   color: #4b382d;
 }
 
-.about-text p {
-  line-height: 2;
-  color: #6e5a4f;
+.why-text h3 {
+  font-size: 1.4rem;
+  font-weight: 500;
   margin-bottom: 20px;
+  color: #b88663;
 }
 
-.about-image img {
-  width: 100%;
-  border-radius: 25px;
+.why-text p {
+  line-height: 1.9;
+  color: #6e5a4f;
+  margin-bottom: 15px;
 }
 
-/* MISSION */
-.mission-section {
-  max-width: 1300px;
-  margin: auto;
-  padding: 0 40px 100px;
-
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 25px;
+/* BOXES SIDE */
+.why-boxes {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.mission-card {
-  background: #efe4d8;
-  padding: 40px 30px;
-  border-radius: 20px;
+.why-box {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+  border-left: 5px solid #b88663;
   transition: 0.3s ease;
 }
 
-.mission-card:hover {
+.why-box:hover {
   transform: translateY(-6px);
 }
 
-.mission-card h3 {
-  margin-bottom: 15px;
+.why-box h4 {
+  margin-bottom: 8px;
   color: #4b382d;
-  font-weight: 500;
 }
 
-.mission-card p {
+.why-box p {
+  color: #6e5a4f;
+  line-height: 1.6;
+}
+.nutrition-section {
+  max-width: 1200px;
+  margin: auto;
+  padding: 100px 30px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* TEXT */
+.nutrition-text h2 {
+  font-size: 3rem;
+  font-weight: 300;
+  margin-bottom: 10px;
+  color: #4b382d;
+}
+
+.nutrition-text h3 {
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+  color: #b88663;
+}
+
+.nutrition-text p {
   line-height: 1.9;
   color: #6e5a4f;
+  margin-bottom: 15px;
 }
 
+/* IMAGE */
+.nutrition-image img {
+  width: 100%;
+  border-radius: 20px;
+  object-fit: cover;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+}
+
+.nutrition-image img:hover {
+  transform: scale(1.03);
+}
 /* STATS */
 .stats-section {
   max-width: 1300px;
@@ -328,7 +407,7 @@ button:hover {
 
 .services-section {
   width: 100%;
- background:  #f3ddcd;
+  background: #f8f2ee;
   color: #4b382d;
   min-height: 100vh;
 }
@@ -511,3 +590,4 @@ button:hover {
     grid-template-columns: 1fr;
   }
 }
+

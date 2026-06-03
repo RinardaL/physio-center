@@ -28,12 +28,6 @@ export default function Navbar() {
           </NavLink>
         </li>
 
-        <li>
-          <NavLink to="/contact" className={({ isActive }) => isActive ? "active" : ""}>
-            Contact
-          </NavLink>
-          
-        </li>
           <li>
           <NavLink to="/therapist" className={({ isActive }) => isActive ? "active" : ""}>
             Therapists

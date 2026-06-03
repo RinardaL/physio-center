@@ -1,4 +1,5 @@
 import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
 import "../../index.css";
 
 import rehabImg from "../../assets/rehab-room.png";
@@ -13,116 +14,99 @@ export default function About() {
 
         {/* HERO */}
         <section className="about-hero">
-
           <img src={rehabImg} alt="Physiotherapy Clinic" />
-
           <div className="hero-overlay"></div>
 
           <div className="hero-content">
             <span>PHYSIOTHERAPY CENTER</span>
-
             <h1>Professional Care For Your Recovery</h1>
             <p>
-             Recovery is not just the restoration of movement, 
-             but the restoration of a person’s confidence in their own body.
+              Recovery is not just the restoration of movement,
+              but the restoration of a person’s confidence in their own body.
             </p>
           </div>
-
         </section>
+ 
+          {/* WHY US SECTION */}
+<section className="why-section">
 
-        {/* WHO WE ARE */}
-        <section className="about-section about-grid">
+  <div className="why-text">
 
-          <div className="about-text">
+    <h2>Why Physio Center?</h2>
 
-            <span>ABOUT US</span>
+    <h3>Local Care. Professional Expertise.</h3>
 
-            <h2>Focused On Recovery & Wellness</h2>
+    <p>
+      Founded with the belief that recovery should be faster, safer,
+      and more empowering, Physio Center is committed to delivering
+      high-quality physiotherapy care tailored to every patient.
+    </p>
 
-            <p>
-              Our clinic provides professional physiotherapy services designed
-              to support recovery, improve mobility, and help patients return
-              to daily activities with confidence.
-            </p>
+    <p>
+      With a dedicated team of specialists and modern rehabilitation
+      techniques, we create personalized treatment plans designed to
+      help you recover with confidence and long-term results.
+    </p>
 
-            <p>
-              We believe every patient deserves personalized treatment and
-              long-term support throughout their rehabilitation journey.
-            </p>
+  </div>
 
-          </div>
+  <div className="why-boxes">
 
-          <div className="about-image">
-            <img src={wellnessImg} alt="Clinic" />
-          </div>
+    <div className="why-box">
+      <h4>Personalized Treatment</h4>
+      <p>Every recovery plan is designed based on your individual needs and goals.
+        We focus on creating a comfortable environment where every patient
+                receives professional attention and personalized support.
+      </p>
+    </div>
 
-        </section>
+    <div className="why-box">
+      <h4>Advanced Techniques</h4>
+      <p>We use modern physiotherapy methods and rehabilitation technology.
+      Recovery is not always linear. That’s why we provide continuous support,
+                education, and motivation throughout the process.</p>
+    </div>
 
-        {/* MISSION */}
-        <section className="mission-section">
+    <div className="why-box">
+      <h4>Expert Therapists</h4>
+      <p>Highly trained specialists focused on safe and effective recovery. 
+        We are a modern physiotherapy clinic dedicated to restoring movement,
+        reducing pain, and improving the overall quality of life for our patients.</p>
+    </div>
 
-          <div className="mission-card">
-            <h3>Our Mission</h3>
+  </div>
 
-            <p>
-              We are a modern physiotherapy clinic dedicated to restoring movement,
-              reducing pain, and improving the overall quality of life for our patients.
-              Our approach is built on a combination of clinical expertise, personalized treatment plans,
-              and a deep understanding of human movement.
-              Every patient is unique, and so is every recovery journey.
+</section>
+ {/* NUTRITION SECTION */}
+<section className="nutrition-section">
 
-            </p>
-          </div>
+  <div className="nutrition-text">
 
-          <div className="mission-card">
-            <h3>Patient Care</h3>
+    <h2>Nutrition & Recovery</h2>
 
-            <p>
-              We focus on creating a comfortable environment where every patient
-              receives professional attention and personalized support.
-              We work closely with each patient to set realistic goals, track progress, and adjust treatments as needed.
-              Our mission is not only to treat the injury, but to help patients regain confidence in their bodies
-              and return to an active, pain-free lifestyle.
+    <h3>Fuel Your Healing Process</h3>
 
+    <p>
+      Proper nutrition plays a key role in physical recovery and muscle regeneration.
+      At Physio Center, we encourage balanced eating habits that support healing,
+      reduce inflammation, and improve overall energy levels.
+    </p>
 
-            </p>
-          </div>
+    <p>
+      A combination of protein-rich meals, hydration, and natural foods helps
+      accelerate rehabilitation and improves treatment results.
+    </p>
 
-          <div className="mission-card">
-            <h3>Modern Approach</h3>
+  </div>
 
-            <p>
-             
-            One of the biggest challenges in rehabilitation is consistency and patience. 
-            Recovery is not always linear, and many patients face setbacks, pain flare-ups, or slow progress.
-            That’s why our clinic emphasizes continuous support, education, and motivation throughout the entire recovery process.
+  <div className="nutrition-image">
+    <img src={wellnessImg} alt="Healthy Nutrition" />
+  </div>
 
+</section>
+        
 
-            </p>
-          </div>
-
-        </section>
-
-        {/* STATS */}
-        <section className="stats-section">
-
-          <div className="stat-box">
-            <h2>10+</h2>
-            <p>Years Experience</p>
-          </div>
-
-          <div className="stat-box">
-            <h2>500+</h2>
-            <p>Recovered Patients</p>
-          </div>
-
-          <div className="stat-box">
-            <h2>100%</h2>
-            <p>Care & Commitment</p>
-          </div>
-
-        </section>
-
+        <Footer />
       </div>
     </>
   );
