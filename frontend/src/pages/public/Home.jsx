@@ -108,7 +108,7 @@ export default function Home() {
         </div>
 
         <div className="appointmentBtn">
-          <button onClick={() => navigate("/about")}>
+          <button onClick={() => navigate("/")}>
              Book An Appointment
            </button>
         </div>
