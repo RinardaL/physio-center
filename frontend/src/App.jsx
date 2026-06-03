@@ -15,7 +15,13 @@ import Therapists from "./pages/admin/Therapists";
 import Sessions from "./pages/admin/Sessions";
 import Exercises from "./pages/admin/Exercises";
 import Equipment from "./pages/admin/Equipment";
+
 import Assessments from "./pages/admin/Assessments";
+import Patients from "./pages/admin/Patients";
+import Treatments from "./pages/admin/Treatments";
+import TreatmentPlan from "./pages/admin/TreatmentPlan";
+import ExercisesPlan from "./pages/admin/ExercisePlan";
+import Payment from "./pages/admin/Payment";
 
 export default function App() {
   return (
@@ -42,6 +48,11 @@ export default function App() {
             <Route path="/exercises" element={<Exercises />} />
             <Route path="/equipment" element={<Equipment />} />
             <Route path="/assessments" element={<Assessments />} />
+            <Route path="/patients" element={<Patients />} />
+            <Route path="/treatments" element={<Treatments />} />
+            <Route path="//treatment-plans" element={<TreatmentPlan />} />
+            <Route path="//exercise-plans" element={<ExercisesPlan />} />
+             <Route path="//payments" element={<Payment />} />
           </Route>
         </Route>
 

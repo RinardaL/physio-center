@@ -240,3 +240,36 @@ tr:hover {
     font-size: 14px;
   }
 }
+.themeToggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+
+  width: 46px;
+  height: 46px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+
+  background: rgba(184, 140, 107, 0.15); 
+  border: 1px solid rgba(184, 140, 107, 0.25);
+
+  backdrop-filter: blur(10px);
+
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.themeToggle:hover {
+  transform: translateY(-2px) scale(1.05);
+  background: rgba(184, 140, 107, 0.25);
+}
+
+.themeToggle .icon {
+  font-size: 18px;
+}

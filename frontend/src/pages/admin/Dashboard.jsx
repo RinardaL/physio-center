@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../../api";
 import "./dashboard.css";
+import { Sun, Moon } from "lucide-react";
 
 export default function Dashboard() {
   const navigate = useNavigate();
@@ -52,12 +53,13 @@ export default function Dashboard() {
     <div className="dashboard">
 
       
-      <span
-        onClick={() => setDarkMode(prev => !prev)}
-        className="themeIcon"
-      >
-        {darkMode ? "☀️" : "🌙"}
-      </span>
+    <div
+  onClick={() => setDarkMode(prev => !prev)}
+  className="themeToggle"
+  title="Toggle theme"
+>
+  {darkMode ? <Sun size={18} /> : <Moon size={18} />}
+</div>
 
       
       <div className="hero">
