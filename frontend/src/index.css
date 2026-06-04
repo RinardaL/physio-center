@@ -152,7 +152,7 @@ button:hover {
   color: #3e3128;
 }
 
-/* HERO */
+
 .about-hero {
   position: relative;
   width: 100%;
@@ -206,14 +206,14 @@ button:hover {
   color: #f3e9e2;
 }
 
-/* SECTION */
+
 .about-section {
   max-width: 1200px;
   margin: auto;
   padding: 100px 30px;
 }
 
-/* IMAGE */
+
 .about-image-bottom {
   margin-top: 60px;
   display: flex;
@@ -228,7 +228,7 @@ button:hover {
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0);
 }
 
-/* RESPONSIVE */
+
 @media (max-width: 950px) {
 
   .hero-content h1 {
@@ -257,7 +257,7 @@ button:hover {
   align-items: center;
 }
 
-/* TEXT SIDE */
+
 .why-text h2 {
   font-size: 3rem;
   font-weight: 300;
@@ -278,7 +278,7 @@ button:hover {
   margin-bottom: 15px;
 }
 
-/* BOXES SIDE */
+
 .why-boxes {
   display: flex;
   flex-direction: column;
@@ -318,7 +318,7 @@ button:hover {
   align-items: center;
 }
 
-/* TEXT */
+
 .nutrition-text h2 {
   font-size: 3rem;
   font-weight: 300;
@@ -339,7 +339,7 @@ button:hover {
   margin-bottom: 15px;
 }
 
-/* IMAGE */
+
 .nutrition-image img {
   width: 100%;
   border-radius: 20px;
@@ -351,7 +351,7 @@ button:hover {
 .nutrition-image img:hover {
   transform: scale(1.03);
 }
-/* STATS */
+
 .stats-section {
   display: flex;
   justify-content: space-around;
@@ -381,7 +381,7 @@ button:hover {
   letter-spacing: 0.5px;
 }
 
-/* RESPONSIVE */
+
 @media (max-width: 950px) {
 
   .about-grid,
@@ -462,7 +462,6 @@ button:hover {
   color: #f3e9e2;
 }
 
-/* INTRO SECTION */
 .services-intro {
   max-width: 850px;
   margin: auto;
@@ -483,7 +482,7 @@ button:hover {
   font-size: 1.05rem;
 }
 
-/* SERVICE ROW (like About layout style) */
+
 .service-row {
   max-width: 1200px;
   margin: auto;
@@ -502,7 +501,7 @@ button:hover {
   direction: ltr;
 }
 
-/* IMAGE */
+
 .service-image img {
   width: 100%;
   border-radius: 20px;
@@ -515,7 +514,7 @@ button:hover {
   transform: scale(1.02);
 }
 
-/* TEXT */
+
 .service-info h3 {
   font-size: 2.4rem;
   font-weight: 300;
@@ -530,7 +529,7 @@ button:hover {
   font-size: 1.05rem;
 }
 
-/* DETAILS */
+
 .service-details {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -561,7 +560,7 @@ button:hover {
   color: #6e5a4f;
 }
 
-/* RESPONSIVE */
+
 @media (max-width: 950px) {
 
   .service-row {
