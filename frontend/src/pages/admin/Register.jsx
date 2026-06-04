@@ -10,7 +10,7 @@ export default function Register() {
   const [form, setForm] = useState({
     name: "",
     email: "",
-    password: "",
+    password: ""
   });
 
   const handleChange = (e) => {
@@ -21,13 +21,16 @@ export default function Register() {
     e.preventDefault();
 
     try {
-      await api.post("/auth/register", form);
+      await api.post("/auth/register", {
+        ...form,
+        role: "patient"
+      });
 
       alert("Account created successfully");
       navigate("/login");
     } catch (err) {
-      console.log(err);
-      alert("Register failed");
+      console.log(err.response?.data);
+      alert(err.response?.data?.message || "Register failed");
     }
   };
 
@@ -41,6 +44,7 @@ export default function Register() {
           <input
             name="name"
             placeholder="Name"
+            required
             onChange={handleChange}
           />
 
@@ -48,6 +52,7 @@ export default function Register() {
             type="email"
             name="email"
             placeholder="Email"
+            required
             onChange={handleChange}
           />
 
@@ -55,6 +60,7 @@ export default function Register() {
             type="password"
             name="password"
             placeholder="Password"
+            required
             onChange={handleChange}
           />
 

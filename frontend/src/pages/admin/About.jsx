@@ -12,7 +12,6 @@ export default function About() {
 
       <div className="about-page">
 
-        {/* HERO */}
         <section className="about-hero">
           <img src={rehabImg} alt="Physiotherapy Clinic" />
           <div className="hero-overlay"></div>
@@ -27,7 +26,6 @@ export default function About() {
           </div>
         </section>
  
-          {/* WHY US SECTION */}
 <section className="why-section">
 
   <div className="why-text">
@@ -77,7 +75,7 @@ export default function About() {
   </div>
 
 </section>
- {/* NUTRITION SECTION */}
+ 
 <section className="nutrition-section">
 
   <div className="nutrition-text">

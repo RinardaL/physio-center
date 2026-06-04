@@ -21,7 +21,7 @@
   margin-bottom: 10px;
 }
 
-/* SOCIAL */
+
 .socials {
   display: flex;
   gap: 12px;
@@ -46,7 +46,7 @@
   transform: translateY(-3px);
 }
 
-/* INPUT */
+
 .footer-box input {
   width: 100%;
   padding: 10px;
@@ -72,7 +72,7 @@
   background: #9f7050;
 }
 
-/* BOTTOM */
+
 .footer-bottom {
   text-align: center;
   margin-top: 40px;
@@ -82,7 +82,7 @@
   opacity: 0.7;
 }
 
-/* RESPONSIVE */
+
 @media (max-width: 900px) {
   .footer-container {
     grid-template-columns: 1fr;

@@ -26,7 +26,7 @@ export default function Service() {
 
   </div>
 
-  {/* PHYSIOTHERAPY */}
+  
   <div className="service-row">
 
     <div className="service-image">
@@ -73,7 +73,7 @@ export default function Service() {
 
   </div>
 
-  {/* SPORTS INJURY */}
+  
   <div className="service-row reverse-row">
 
     <div className="service-image">
@@ -120,7 +120,7 @@ export default function Service() {
 
   </div>
 
-  {/* MANUAL THERAPY */}
+  
   <div className="service-row">
 
     <div className="service-image">
@@ -167,7 +167,7 @@ export default function Service() {
 
   </div>
 
-  {/* REHABILITATION */}
+  
   <div className="service-row reverse-row">
 
     <div className="service-image">
@@ -215,7 +215,7 @@ export default function Service() {
 
 </section>
 
-    {/* FOOTER */}
+    
       <Footer />
     </>
      
