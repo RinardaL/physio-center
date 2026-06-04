@@ -1,7 +1,7 @@
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import "../../index.css";
-
+import Counter from "./Counter";
 import rehabImg from "../../assets/rehab-room.png";
 import wellnessImg from "../../assets/wellness-snack.png";
 
@@ -102,7 +102,29 @@ export default function About() {
   </div>
 
 </section>
-        
+     <section className="stats-section">
+
+  <div className="stat">
+    <h3><Counter end={500} />+</h3>
+    <p>Patients Treated</p>
+  </div>
+
+  <div className="stat">
+    <h3><Counter end={10} />+</h3>
+    <p>Years Experience</p>
+  </div>
+
+  <div className="stat">
+    <h3><Counter end={95} />%</h3>
+    <p>Recovery Rate</p>
+  </div>
+
+  <div className="stat">
+    <h3>5★</h3>
+    <p>Patient Satisfaction</p>
+  </div>
+
+</section>
 
         <Footer />
       </div>

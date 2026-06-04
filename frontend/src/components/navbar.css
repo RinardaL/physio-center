@@ -6,7 +6,7 @@
 
   display: flex;
   align-items: center;
-  justify-content: space-between; /* 👈 KJO është çelësi */
+  justify-content: space-between;
 
   padding: 10px 60px;
   z-index: 1000;
@@ -15,13 +15,8 @@
   backdrop-filter: blur(10px);
 }
 
-.logo {
-  display: flex;
-  align-items: center;
-}
-
 .logo img {
-  height: 45px; 
+  height: 45px;
   object-fit: contain;
 }
 
@@ -41,51 +36,46 @@
 
 .navLinks li {
   font-size: 14px;
-  color: white;
-  cursor: pointer;
 }
-.navLinks a {
+
+
+.navLinks a,
+.nav-btn,
+.logout-link {
   color: white;
   text-decoration: none;
   font-size: 14px;
+
   position: relative;
   padding-bottom: 4px;
+  cursor: pointer;
+
   transition: 0.3s;
 }
 
-.navLinks a::after {
+
+.navLinks a::after,
+.nav-btn::after,
+.logout-link::after {
   content: "";
   position: absolute;
   left: 0;
   bottom: 0;
+
   width: 0%;
   height: 2px;
   background: #a8744f;
+
   transition: 0.3s;
 }
 
-.navLinks a:hover::after {
+
+.navLinks a:hover::after,
+.nav-btn:hover::after,
+.logout-link:hover::after {
   width: 100%;
 }
+
 .navLinks a.active {
   color: #a8744f;
-}
-
-.navLinks a.active::after {
-  width: 100%;
-}
-
-.nav-btn {
-  background: #a8744f;
-  color: white;
-  border: none;
-  padding: 10px 14px;
-  border-radius: 10px;
-  cursor: pointer;
-  font-size: 0.9rem;
-  transition: 0.3s;
-}
-
-.nav-btn:hover {
-  background: #915c3f;
 }

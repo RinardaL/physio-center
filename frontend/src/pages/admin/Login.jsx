@@ -30,7 +30,7 @@ export default function Login() {
     setForm({ email: "", password: "" });
 
     if (role === "therapist") {
-      navigate("/dashboard");
+      navigate("/");
     } else {
       navigate("/");
     }
