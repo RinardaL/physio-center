@@ -52,9 +52,9 @@ export default function App() {
             <Route path="/assessments" element={<Assessments />} />
             <Route path="/patients" element={<Patients />} />
             <Route path="/treatments" element={<Treatments />} />
-            <Route path="//treatment-plans" element={<TreatmentPlan />} />
-            <Route path="//exercise-plans" element={<ExercisesPlan />} />
-             <Route path="//payments" element={<Payment />} />
+            <Route path="/treatment-plans" element={<TreatmentPlan />} />
+            <Route path="/exercise-plans" element={<ExercisesPlan />} />
+            <Route path="/payments" element={<Payment />} />
           </Route>
         </Route>
 
