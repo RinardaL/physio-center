@@ -2,6 +2,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { User } = require("../models");
 
+// REGISTER
 const register = async (req, res) => {
   try {
     const { name, email, password, role } = req.body;
@@ -35,7 +36,7 @@ const register = async (req, res) => {
   }
 };
 
-
+// LOGIN
 const login = async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -52,32 +53,24 @@ const login = async (req, res) => {
       return res.status(401).json({ message: "Invalid credentials" });
     }
 
-   
     const accessToken = jwt.sign(
-      {
-        id: user.id,
-        role: user.role,
-      },
+      { id: user.id, role: user.role },
       process.env.ACCESS_SECRET,
       { expiresIn: "15m" }
     );
 
-  
     const refreshToken = jwt.sign(
-      {
-        id: user.id,
-        role: user.role,
-      },
+      { id: user.id, role: user.role },
       process.env.REFRESH_SECRET,
       { expiresIn: "7d" }
     );
 
-    
     res.cookie("refreshToken", refreshToken, {
       httpOnly: true,
       secure: false,
-      sameSite: "strict",
-      path: "/",
+      sameSite: "lax",
+      path: "/api/auth/refresh",
+      maxAge: 7 * 24 * 60 * 60 * 1000,
     });
 
     return res.json({
@@ -95,15 +88,20 @@ const login = async (req, res) => {
   }
 };
 
+// REFRESH TOKEN
 const refreshToken = (req, res) => {
   try {
     const token = req.cookies.refreshToken;
-
+ 
     if (!token) {
+      res.clearCookie("refreshToken", {
+        path: "/api/auth/refresh",
+      });
+
       return res.status(401).json({ message: "No refresh token" });
     }
 
-    jwt.verify(token, process.env.REFRESH_SECRET, async (err, decoded) => {
+    jwt.verify(token, process.env.REFRESH_SECRET, (err, decoded) => {
       if (err) {
         return res.status(403).json({ message: "Invalid refresh token" });
       }
@@ -122,4 +120,18 @@ const refreshToken = (req, res) => {
   }
 };
 
-module.exports = { register, login, refreshToken };
+// LOGOUT
+const logout = (req, res) => {
+  res.clearCookie("refreshToken", {
+    path: "/api/auth/refresh",
+  });
+
+  return res.json({ message: "Logged out" });
+};
+
+module.exports = {
+  register,
+  login,
+  refreshToken,
+  logout,
+};
