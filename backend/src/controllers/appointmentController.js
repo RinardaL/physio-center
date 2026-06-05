@@ -5,12 +5,12 @@ exports.createAppointment = async (req, res) => {
     const { therapistId, date, time } = req.body;
     const patientId = req.user.id;
 
-    // vetëm pacienti
+    
     if (req.user.role !== "patient") {
       return res.status(403).json({ message: "Vetëm pacientët mund të rezervojnë." });
     }
 
-    // kontrollo konflikt
+    
     const exists = await Appointment.findOne({
       where: { therapistId, date, time },
     });
@@ -19,7 +19,7 @@ exports.createAppointment = async (req, res) => {
       return res.status(400).json({ message: "Ky termi është i zënë." });
     }
 
-    // orari
+    
     const hour = parseInt(time.split(":")[0]);
     const day = new Date(date).getDay();
 

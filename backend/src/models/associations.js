@@ -62,11 +62,7 @@ Payment.belongsTo(Session, { foreignKey: "session_id" });
 
 
 
-// =======================
-// USER ↔ APPOINTMENT
-// =======================
 
-// pacienti
 User.hasMany(Appointment, {
   foreignKey: "patientId",
   as: "patientAppointments",
@@ -78,7 +74,6 @@ Appointment.belongsTo(User, {
 });
 
 
-// terapisti
 User.hasMany(Appointment, {
   foreignKey: "therapistId",
   as: "therapistAppointments",
