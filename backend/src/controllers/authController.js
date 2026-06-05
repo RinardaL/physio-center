@@ -2,7 +2,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { User } = require("../models");
 
-// REGISTER
+
 const register = async (req, res) => {
   try {
     const { name, email, password, role } = req.body;
@@ -36,7 +36,7 @@ const register = async (req, res) => {
   }
 };
 
-// LOGIN
+
 const login = async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -56,7 +56,7 @@ const login = async (req, res) => {
     const accessToken = jwt.sign(
       { id: user.id, role: user.role },
       process.env.ACCESS_SECRET,
-      { expiresIn: "15m" }
+      { expiresIn: "30m" }
     );
 
     const refreshToken = jwt.sign(
@@ -88,7 +88,7 @@ const login = async (req, res) => {
   }
 };
 
-// REFRESH TOKEN
+
 const refreshToken = (req, res) => {
   try {
     const token = req.cookies.refreshToken;
@@ -120,7 +120,7 @@ const refreshToken = (req, res) => {
   }
 };
 
-// LOGOUT
+
 const logout = (req, res) => {
   res.clearCookie("refreshToken", {
     path: "/api/auth/refresh",

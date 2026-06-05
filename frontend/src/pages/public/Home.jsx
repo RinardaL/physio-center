@@ -8,12 +8,12 @@ import physio3 from "../../assets/manualtherapy.png";
 import physio4 from "../../assets/rehabilitation.png";
 
 import aboutImg from "../../assets/aboutImg.png";
-
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import Appointment from "../admin/Appointment";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -66,7 +66,7 @@ export default function Home() {
               <div className="heroButtons">
                 <button
                   className="primaryBtn"
-                  onClick={() => navigate("/dashboard")}
+                  onClick={() => navigate("/appointments")}
                 >
                   Book Appointment
                 </button>
@@ -131,11 +131,7 @@ export default function Home() {
           ))}
         </Swiper>
 
-        <div className="appointmentBtn">
-          <button onClick={() => navigate("/dashboard")}>
-            Book An Appointment
-          </button>
-        </div>
+        
       </section>
 
       {/* ABOUT */}

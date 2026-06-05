@@ -9,6 +9,7 @@ import About from "./pages/admin/About";
 import Login from "./pages/admin/Login";
 import Register from "./pages/admin/Register";
 import Service from "./pages/public/Service";
+import Therapist from "./pages/public/Therapist";
 
 
 
@@ -24,6 +25,7 @@ import Treatments from "./pages/admin/Treatments";
 import TreatmentPlan from "./pages/admin/TreatmentPlan";
 import ExercisesPlan from "./pages/admin/ExercisePlan";
 import Payment from "./pages/admin/Payment";
+import Appointment from "./pages/admin/Appointment";
 
 export default function App() {
   return (
@@ -34,11 +36,14 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/therapist" element={<Therapist />} />
+
 
         {/* ANY LOGGED USER */}
         <Route element={<ProtectedRoute />}>
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Service/>}/>
+          <Route path="/appointments" element={<Appointment />} />
         </Route>
 
         {/* THERAPIST ONLY */}
@@ -55,6 +60,7 @@ export default function App() {
             <Route path="/treatment-plans" element={<TreatmentPlan />} />
             <Route path="/exercise-plans" element={<ExercisesPlan />} />
             <Route path="/payments" element={<Payment />} />
+             
           </Route>
         </Route>
 

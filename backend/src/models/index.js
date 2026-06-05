@@ -13,6 +13,7 @@ const Therapist = require("./therapistModel")(sequelize, DataTypes);
 const Treatment = require("./treatmentModel")(sequelize, DataTypes);
 const TreatmentPlan = require("./treatmentPlanModel")(sequelize, DataTypes);
 const  User = require("./userModel")(sequelize,DataTypes);
+const Appointment = require("./appointment")(sequelize,DataTypes);
 
 
 
@@ -31,6 +32,7 @@ module.exports = {
   Treatment,
   TreatmentPlan,
   User,
+  Appointment,
   
 
 };

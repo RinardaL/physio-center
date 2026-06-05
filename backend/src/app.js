@@ -19,6 +19,7 @@ const treatmentRoutes = require("./routes/treatmentRoutes");
 const treatmentPlanRoutes = require("./routes/treatmentPlanRoutes");
 const exercisePlanRoutes = require("./routes/exercisePlanRoutes");
 const paymentRoutes = require("./routes/paymentRoutes");
+const appointmentRoutes=require("./routes/appointmentRoutes.js");
 
 
 app.use(cors());
@@ -34,12 +35,11 @@ app.use("/treatments", treatmentRoutes);
 app.use("/treatment-plans", treatmentPlanRoutes);
 app.use("/exercise-plans", exercisePlanRoutes);
 app.use("/payments", paymentRoutes);
-
+app.use("/appointments",appointmentRoutes);
 
 app.get("/", (req, res) => {
   res.send("SERVER IS WORKING");
 });
-
 
 app.use((err, req, res, next) => {
   console.error(err);

@@ -17,15 +17,16 @@ const treatmentPlanRoutes = require("./src/routes/treatmentPlanRoutes");
 const exercisePlanRoutes = require("./src/routes/exercisePlanRoutes");
 const paymentRoutes = require("./src/routes/paymentRoutes");
 const stripeRoutes = require("./src/routes/stripeRoutes");
+const appointmentRoutes = require("./src/routes/appointmentRoutes");
 
 require("./src/models/index");
 
 const app = express();
 
-// Stripe webhook (duhet para json)
+
 app.use("/api/stripe/webhook", express.raw({ type: "application/json" }));
 
-// CORS FIX
+
 app.use(
   cors({
     origin: "http://localhost:3001",
@@ -48,6 +49,7 @@ app.use("/api/treatment-plans", treatmentPlanRoutes);
 app.use("/api/exercise-plans", exercisePlanRoutes);
 app.use("/api/payments", paymentRoutes);
 app.use("/api/stripe", stripeRoutes);
+app.use("/api/appointments",appointmentRoutes);
 
 const PORT = process.env.PORT || 3001;
 

@@ -1,0 +1,61 @@
+.appointment-container {
+  max-width: 450px;
+  margin: 60px auto;
+  padding: 25px;
+  background: #f7f3ee;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  font-family: Arial, sans-serif;
+}
+
+.appointment-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #3e3128;
+}
+
+.appointment-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+
+.appointment-container select,
+.appointment-container input {
+  padding: 12px;
+  border: 1px solid #d6c7b8;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  transition: 0.2s;
+  background: #fff;
+}
+
+.appointment-container select:focus,
+.appointment-container input:focus {
+  border-color: #a67c52;
+  box-shadow: 0 0 5px rgba(166, 124, 82, 0.3);
+}
+
+
+.appointment-container button {
+  padding: 12px;
+  background: #a67c52;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.appointment-container button:hover {
+  background: #8b653f;
+}
+
+
+.appointment-container button:disabled {
+  background: #c9b7a3;
+  cursor: not-allowed;
+}
