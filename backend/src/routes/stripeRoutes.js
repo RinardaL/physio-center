@@ -6,9 +6,6 @@ const {
   stripeWebhook,
 } = require("../controllers/stripeController");
 
-console.log("createCheckoutSession =", createCheckoutSession);
-console.log("stripeWebhook =", stripeWebhook);
-
 // checkout route
 router.post("/create-checkout-session", createCheckoutSession);
 
@@ -20,4 +17,3 @@ router.post(
 );
 
 module.exports = router;
-console.log("stripeWebhook =", stripeWebhook);

@@ -33,8 +33,20 @@ exports.createCheckoutSession = async (req, res) => {
 };
 
 exports.stripeWebhook = async (req, res) => {
+  let event;
+
+  // verify the request really comes from Stripe (req.body is the raw buffer)
   try {
-    const event = req.body;
+    event = stripe.webhooks.constructEvent(
+      req.body,
+      req.headers["stripe-signature"],
+      process.env.STRIPE_WEBHOOK_SECRET
+    );
+  } catch (err) {
+    return res.status(400).json({ error: `Webhook signature verification failed: ${err.message}` });
+  }
+
+  try {
 
     if (event.type === "payment_intent.succeeded") {
       const paymentIntent = event.data.object;
