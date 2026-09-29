@@ -30,9 +30,18 @@ const app = express();
 // Stripe needs the raw body to verify webhook signatures: keep this before express.json().
 app.use("/api/stripe/webhook", express.raw({ type: "application/json" }));
 
+// Allow the React app from any localhost port in development (CRA picks
+// another port when 3001 is busy), or the CLIENT_URL set in production.
+const allowedOrigin = (origin, callback) => {
+  if (!origin) return callback(null, true); // curl, Postman, same-origin
+  if (process.env.CLIENT_URL && origin === process.env.CLIENT_URL) return callback(null, true);
+  if (/^http:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin)) return callback(null, true);
+  return callback(new Error(`CORS: origin ${origin} not allowed`));
+};
+
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || "http://localhost:3001",
+    origin: allowedOrigin,
     credentials: true,
   })
 );
