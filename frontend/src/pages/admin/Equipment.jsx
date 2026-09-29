@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../../api";
 
 export default function Equipment() {
   const [data, setData] = useState([]);
@@ -16,7 +16,7 @@ export default function Equipment() {
 
   const loadEquipment = async () => {
     try {
-      const res = await axios.get("/equipment");
+      const res = await api.get("/equipment");
       setData(res.data);
     } catch {
       setData([]);
@@ -27,9 +27,9 @@ export default function Equipment() {
     e.preventDefault();
 
     if (editingId) {
-      await axios.put(`/equipment/${editingId}`, form);
+      await api.put(`/equipment/${editingId}`, form);
     } else {
-      await axios.post("/equipment", form);
+      await api.post("/equipment", form);
     }
 
     setForm({ name: "", status: "available" });
@@ -43,7 +43,7 @@ export default function Equipment() {
   };
 
   const handleDelete = async (id) => {
-    await axios.delete(`/equipment/${id}`);
+    await api.delete(`/equipment/${id}`);
     loadEquipment();
   };
 

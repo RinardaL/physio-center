@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../../api";
 import "../../App.css";
 
-const API = "http://localhost:3000/api/therapists";
+const API = "/therapists";
 
 export default function Therapists() {
   const [data, setData] = useState([]);
@@ -20,7 +20,7 @@ export default function Therapists() {
 
   const loadTherapists = async () => {
     try {
-      const res = await axios.get(API);
+      const res = await api.get(API);
       setData(res.data);
     } catch (err) {
       console.log("Load error:", err);
@@ -42,9 +42,9 @@ export default function Therapists() {
 
     try {
       if (editingId) {
-        await axios.put(`${API}/${editingId}`, payload);
+        await api.put(`${API}/${editingId}`, payload);
       } else {
-        await axios.post(API, payload);
+        await api.post(API, payload);
       }
 
       setForm({
@@ -71,7 +71,7 @@ export default function Therapists() {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`${API}/${id}`);
+      await api.delete(`${API}/${id}`);
       loadTherapists();
     } catch (err) {
       console.log("Delete error:", err);

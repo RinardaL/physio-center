@@ -1,86 +1,62 @@
+// Model relationships. Loaded once by models/index.js.
+// `constraints: false` keeps Sequelize from adding database foreign keys on
+// existing tables during sync({ alter: true }); the associations still work
+// for `include` queries.
 const {
   Patient,
   Therapist,
   Treatment,
   Session,
   TreatmentPlan,
-  ExercisePlan,
   Exercise,
   ClinicalAssessment,
-  Payment,
   Appointment,
   User,
+  TherapyTask,
 } = require("./index");
 
+const soft = { constraints: false };
 
+// Login accounts <-> clinic records
+User.hasOne(Patient, { foreignKey: "user_id", as: "patientProfile", ...soft });
+Patient.belongsTo(User, { foreignKey: "user_id", as: "account", ...soft });
 
-Patient.hasMany(Session, { foreignKey: "patient_id" });
-Patient.hasMany(TreatmentPlan, { foreignKey: "patient_id" });
-Patient.hasMany(ClinicalAssessment, { foreignKey: "patient_id" });
-Patient.hasMany(Payment, { foreignKey: "patient_id" });
+User.hasOne(Therapist, { foreignKey: "user_id", as: "therapistProfile", ...soft });
+Therapist.belongsTo(User, { foreignKey: "user_id", as: "account", ...soft });
 
+// Sessions
+Patient.hasMany(Session, { foreignKey: "patient_id", ...soft });
+Session.belongsTo(Patient, { foreignKey: "patient_id", ...soft });
 
+Therapist.hasMany(Session, { foreignKey: "therapist_id", ...soft });
+Session.belongsTo(Therapist, { foreignKey: "therapist_id", ...soft });
 
-Therapist.hasMany(Session, { foreignKey: "therapist_id" });
-Therapist.hasMany(TreatmentPlan, { foreignKey: "therapist_id" });
+Treatment.hasMany(Session, { foreignKey: "treatment_id", ...soft });
+Session.belongsTo(Treatment, { foreignKey: "treatment_id", ...soft });
 
+// Therapy plans (TreatmentPlan) and their tasks
+Patient.hasMany(TreatmentPlan, { foreignKey: "patient_id", ...soft });
+TreatmentPlan.belongsTo(Patient, { foreignKey: "patient_id", ...soft });
 
+Therapist.hasMany(TreatmentPlan, { foreignKey: "therapist_id", ...soft });
+TreatmentPlan.belongsTo(Therapist, { foreignKey: "therapist_id", ...soft });
 
-Treatment.hasMany(Session, { foreignKey: "treatment_id" });
+TreatmentPlan.hasMany(TherapyTask, { foreignKey: "treatment_plan_id", as: "tasks", ...soft });
+TherapyTask.belongsTo(TreatmentPlan, { foreignKey: "treatment_plan_id", ...soft });
 
+Exercise.hasMany(TherapyTask, { foreignKey: "exercise_id", ...soft });
+TherapyTask.belongsTo(Exercise, { foreignKey: "exercise_id", as: "exercise", ...soft });
 
+// Clinical assessments
+Patient.hasMany(ClinicalAssessment, { foreignKey: "patient_id", ...soft });
+ClinicalAssessment.belongsTo(Patient, { foreignKey: "patient_id", ...soft });
+ClinicalAssessment.belongsTo(Therapist, { foreignKey: "therapist_id", ...soft });
 
-Session.belongsTo(User, { foreignKey: "patient_id" });
-Session.belongsTo(User, { foreignKey: "therapist_id" });
-Session.belongsTo(Treatment, { foreignKey: "treatment_id" });
+// Appointments are booked between login accounts
+User.hasMany(Appointment, { foreignKey: "patientId", as: "patientAppointments", ...soft });
+Appointment.belongsTo(User, { foreignKey: "patientId", as: "patient", ...soft });
 
+User.hasMany(Appointment, { foreignKey: "therapistId", as: "therapistAppointments", ...soft });
+Appointment.belongsTo(User, { foreignKey: "therapistId", as: "therapist", ...soft });
 
-
-TreatmentPlan.belongsTo(Patient, { foreignKey: "patient_id" });
-TreatmentPlan.belongsTo(Therapist, { foreignKey: "therapist_id" });
-
-TreatmentPlan.hasMany(ExercisePlan, { foreignKey: "plan_id" });
-
-
-ExercisePlan.belongsTo(TreatmentPlan, { foreignKey: "plan_id" });
-ExercisePlan.belongsTo(Exercise, { foreignKey: "exercise_id" });
-
-Exercise.hasMany(ExercisePlan, { foreignKey: "exercise_id" });
-
-
-
-ClinicalAssessment.belongsTo(User, { foreignKey: "patient_id" });
-ClinicalAssessment.belongsTo(User, { foreignKey: "therapist_id" });
-
-
-
-Payment.belongsTo(User, { foreignKey: "patient_id" });
-
-
-Session.hasOne(Payment, { foreignKey: "session_id" });
-Payment.belongsTo(Session, { foreignKey: "session_id" });
-
-
-
-
-User.hasMany(Appointment, {
-  foreignKey: "patientId",
-  as: "patientAppointments",
-});
-
-Appointment.belongsTo(User, {
-  foreignKey: "patientId",
-  as: "patient",
-});
-
-
-User.hasMany(Appointment, {
-  foreignKey: "therapistId",
-  as: "therapistAppointments",
-});
-
-Appointment.belongsTo(User, {
-  foreignKey: "therapistId",
-  as: "therapist",
-});
 module.exports = {};

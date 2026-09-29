@@ -3,6 +3,8 @@ import "./sidebar.css";
 
 import {
   LayoutDashboard,
+  ClipboardCheck,
+  CalendarCheck,
   Users,
   CalendarDays,
   Dumbbell,
@@ -20,16 +22,31 @@ export default function Sidebar() {
 
   const handleLogout = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("user");
     navigate("/login");
   };
 
+  const links = [
+    ["/dashboard", LayoutDashboard, "Dashboard"],
+    ["/therapy", ClipboardCheck, "Therapy Plans"],
+    ["/manage-appointments", CalendarCheck, "Appointments"],
+    ["/patients", User, "Patients"],
+    ["/therapists", Users, "Therapists"],
+    ["/sessions", CalendarDays, "Sessions"],
+    ["/exercises", Dumbbell, "Exercises"],
+    ["/equipment", Monitor, "Equipment"],
+    ["/assessments", ClipboardList, "Assessments"],
+    ["/treatments", HeartPulse, "Treatments"],
+    ["/treatment-plans", FileText, "Treatment Plans"],
+    ["/exercise-plans", Activity, "Exercise Plans"],
+    ["/payments", CreditCard, "Payments"],
+  ];
+
   return (
     <div className="sidebar">
-
       {/* LOGO */}
       <div className="logo">
         <div className="logoIcon">PC</div>
-
         <div className="logoText">
           <h2>Physio Clinic</h2>
           <p>Management System</p>
@@ -38,69 +55,18 @@ export default function Sidebar() {
 
       {/* MENU */}
       <nav className="menu">
-
-        <NavLink to="/dashboard" className="link">
-          <LayoutDashboard size={18} />
-          Dashboard
-        </NavLink>
-
-        <NavLink to="/therapists" className="link">
-          <Users size={18} />
-          Therapists
-        </NavLink>
-
-        <NavLink to="/sessions" className="link">
-          <CalendarDays size={18} />
-          Sessions
-        </NavLink>
-
-        <NavLink to="/exercises" className="link">
-          <Dumbbell size={18} />
-          Exercises
-        </NavLink>
-
-        <NavLink to="/equipment" className="link">
-          <Monitor size={18} />
-          Equipment
-        </NavLink>
-
-        <NavLink to="/assessments" className="link">
-          <ClipboardList size={18} />
-          Assessments
-        </NavLink>
-
-        <NavLink to="/patients" className="link">
-          <User size={18} />
-          Patients
-        </NavLink>
-
-        <NavLink to="/treatments" className="link">
-          <HeartPulse size={18} />
-          Treatments
-        </NavLink>
-
-        <NavLink to="/treatment-plans" className="link">
-          <FileText size={18} />
-          Treatment Plans
-        </NavLink>
-
-        <NavLink to="/exercise-plans" className="link">
-          <Activity size={18} />
-          Exercise Plans
-        </NavLink>
-
-        <NavLink to="/payments" className="link">
-          <CreditCard size={18} />
-          Payments
-        </NavLink>
-
+        {links.map(([to, Icon, label]) => (
+          <NavLink key={to} to={to} className="link">
+            <Icon size={18} />
+            {label}
+          </NavLink>
+        ))}
       </nav>
 
       {/* LOGOUT */}
       <button onClick={handleLogout} className="logoutBtn">
         Logout
       </button>
-
     </div>
   );
 }

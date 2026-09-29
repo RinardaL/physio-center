@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../../api";
 
-const API = "http://localhost:3000/api/exercises";
+const API = "/exercises";
 
 export default function Exercises() {
   const [data, setData] = useState([]);
@@ -10,7 +10,7 @@ export default function Exercises() {
   const [form, setForm] = useState({
     name: "",
     description: "",
-    duration: "",
+    duration_minutes: "",
     difficulty: "",
   });
 
@@ -20,7 +20,7 @@ export default function Exercises() {
 
   const loadExercises = async () => {
     try {
-      const res = await axios.get(API);
+      const res = await api.get(API);
       setData(res.data);
     } catch (err) {
       console.log("Load error:", err);
@@ -37,21 +37,21 @@ export default function Exercises() {
     const payload = {
       name: form.name,
       description: form.description,
-      duration: Number(form.duration),
+      duration_minutes: Number(form.duration_minutes),
       difficulty: form.difficulty,
     };
 
     try {
       if (editingId) {
-        await axios.put(`${API}/${editingId}`, payload);
+        await api.put(`${API}/${editingId}`, payload);
       } else {
-        await axios.post(API, payload);
+        await api.post(API, payload);
       }
 
       setForm({
         name: "",
         description: "",
-        duration: "",
+        duration_minutes: "",
         difficulty: "",
       });
 
@@ -66,7 +66,7 @@ export default function Exercises() {
     setForm({
       name: ex.name || "",
       description: ex.description || "",
-      duration: ex.duration || "",
+      duration_minutes: ex.duration_minutes || "",
       difficulty: ex.difficulty || "",
     });
 
@@ -75,7 +75,7 @@ export default function Exercises() {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`${API}/${id}`);
+      await api.delete(`${API}/${id}`);
       loadExercises();
     } catch (err) {
       console.log("Delete error:", err);
@@ -102,9 +102,9 @@ export default function Exercises() {
         />
 
         <input
-          name="duration"
+          name="duration_minutes"
           placeholder="Duration (min)"
-          value={form.duration}
+          value={form.duration_minutes}
           onChange={handleChange}
         />
 
@@ -139,7 +139,7 @@ export default function Exercises() {
                 <td>{ex.exercise_id}</td>
                 <td>{ex.name}</td>
                 <td>{ex.description}</td>
-                <td>{ex.duration}</td>
+                <td>{ex.duration_minutes ? ` min` : "-"}</td>
                 <td>{ex.difficulty}</td>
                 <td>
                   <button onClick={() => handleEdit(ex)}>Edit</button>

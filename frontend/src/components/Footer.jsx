@@ -33,15 +33,15 @@ export default function Footer() {
 
           {/* SOCIAL */}
           <div className="socials">
-            <a href="#" className="icon" target="_blank" rel="noreferrer">
+            <a href="https://www.instagram.com/" className="icon" target="_blank" rel="noreferrer" aria-label="Instagram">
               <FaInstagram />
             </a>
 
-            <a href="#" className="icon" target="_blank" rel="noreferrer">
+            <a href="https://www.facebook.com/" className="icon" target="_blank" rel="noreferrer" aria-label="Facebook">
               <FaFacebookF />
             </a>
 
-            <a href="#" className="icon" target="_blank" rel="noreferrer">
+            <a href="https://x.com/" className="icon" target="_blank" rel="noreferrer" aria-label="X">
               <FaXTwitter />
             </a>
           </div>

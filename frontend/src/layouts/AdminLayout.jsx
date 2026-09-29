@@ -2,12 +2,6 @@ import Sidebar from "../components/Sidebar";
 import { Outlet } from "react-router-dom";
 
 export default function AdminLayout() {
-
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    window.location.href = "/login";
-  };
-
   return (
     <div style={{ display: "flex", minHeight: "100vh" }}>
 

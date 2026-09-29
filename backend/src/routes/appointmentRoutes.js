@@ -1,9 +1,11 @@
 const express = require("express");
 const router = express.Router();
+const c = require("../controllers/appointmentController");
 
-const { createAppointment } = require("../controllers/appointmentController");
-const auth = require("../middleware/authMiddleware");
+// Mounted behind authMiddleware in server.js.
+router.get("/therapists", c.listTherapists);
+router.get("/", c.listAppointments);
+router.post("/", c.createAppointment);
+router.patch("/:id/status", c.updateStatus);
 
-
-router.post("/", auth, createAppointment);
 module.exports = router;

@@ -12,12 +12,9 @@ const Session = require("./sessionModel")(sequelize, DataTypes);
 const Therapist = require("./therapistModel")(sequelize, DataTypes);
 const Treatment = require("./treatmentModel")(sequelize, DataTypes);
 const TreatmentPlan = require("./treatmentPlanModel")(sequelize, DataTypes);
-const  User = require("./userModel")(sequelize,DataTypes);
-const Appointment = require("./appointment")(sequelize,DataTypes);
-
-
-
-
+const User = require("./userModel")(sequelize, DataTypes);
+const Appointment = require("./appointment")(sequelize, DataTypes);
+const TherapyTask = require("./therapyTaskModel")(sequelize, DataTypes);
 
 module.exports = {
   sequelize,
@@ -33,15 +30,14 @@ module.exports = {
   TreatmentPlan,
   User,
   Appointment,
-  
-
+  TherapyTask,
 };
 
 Object.keys(module.exports).forEach((modelName) => {
   if (module.exports[modelName].associate) {
     module.exports[modelName].associate(module.exports);
   }
-
 });
 
-console.log("EXPORTS:", module.exports);
+// Associations live in associations.js; load them once the models exist.
+require("./associations");

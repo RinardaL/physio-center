@@ -33,18 +33,20 @@ export default function Payment() {
     });
   };
 
-  // STRIPE PAYMENT INIT
- const handlePay = async () => {
-  try {
-    const res = await api.post("/stripe/create-checkout-session", {
-      amount,
-    });
+  // STRIPE PAYMENT: create a checkout session and send the browser to Stripe
+  const handleStripePayment = async (e) => {
+    e.preventDefault();
+    const amount = Number(formData.amount);
+    if (!amount || amount <= 0) return;
 
-    window.location.href = res.data.url;
-  } catch (err) {
-    console.log(err);
-  }
-};
+    try {
+      const res = await api.post("/stripe/create-checkout-session", { amount });
+      window.location.href = res.data.url;
+    } catch (err) {
+      console.log(err);
+      alert(err.response?.data?.error || err.response?.data?.message || "Could not start the payment");
+    }
+  };
 
   // SEARCH
   const filtered = payments.filter((p) => {

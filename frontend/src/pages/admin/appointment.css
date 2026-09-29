@@ -1,6 +1,6 @@
 .appointment-container {
   max-width: 450px;
-  margin: 60px auto;
+  margin: 150px auto 40px; /* clears the fixed navbar */
   padding: 25px;
   background: #f7f3ee;
   border-radius: 12px;

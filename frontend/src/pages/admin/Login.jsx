@@ -29,11 +29,7 @@ export default function Login() {
 
     setForm({ email: "", password: "" });
 
-    if (role === "therapist") {
-      navigate("/");
-    } else {
-      navigate("/");
-    }
+    navigate(role === "therapist" ? "/dashboard" : "/my-therapy");
 
   } catch (err) {
     alert(err.response?.data?.message || "Invalid credentials");

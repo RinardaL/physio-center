@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../../api";
 
 export default function Assessments() {
   const [data, setData] = useState([]);
@@ -16,7 +16,7 @@ export default function Assessments() {
 
   const loadAssessments = async () => {
     try {
-      const res = await axios.get("/assessments");
+      const res = await api.get("/assessments");
       setData(res.data);
     } catch {
       setData([]);
@@ -27,9 +27,9 @@ export default function Assessments() {
     e.preventDefault();
 
     if (editingId) {
-      await axios.put(`/assessments/${editingId}`, form);
+      await api.put(`/assessments/${editingId}`, form);
     } else {
-      await axios.post("/assessments", form);
+      await api.post("/assessments", form);
     }
 
     setForm({ notes: "", date: "" });
@@ -43,7 +43,7 @@ export default function Assessments() {
   };
 
   const handleDelete = async (id) => {
-    await axios.delete(`/assessments/${id}`);
+    await api.delete(`/assessments/${id}`);
     loadAssessments();
   };
 

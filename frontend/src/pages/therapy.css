@@ -1,0 +1,338 @@
+/* Shared styles for the therapy plan pages (therapist + patient) */
+
+.therapyGrid {
+  display: grid;
+  gap: 18px;
+}
+
+.planCard {
+  background: #fff;
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+}
+
+.planHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.planHead h3 {
+  margin: 0;
+  color: #5a4a42;
+  font-size: 20px;
+}
+
+.planMeta {
+  color: #8a7a70;
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+.planDesc {
+  margin: 12px 0 0;
+  color: #5a4a42;
+  line-height: 1.5;
+}
+
+.planNotes {
+  margin: 8px 0 0;
+  font-size: 13px;
+  color: #8a7a70;
+  font-style: italic;
+}
+
+.progressBar {
+  height: 10px;
+  background: #f0e6dd;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 14px 0 4px;
+}
+
+.progressBar span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #b88c6b, #6fae83);
+  border-radius: 10px;
+  transition: width 0.3s ease;
+}
+
+.progressLabel {
+  font-size: 13px;
+  color: #8a7a70;
+}
+
+.taskList {
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.taskItem {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 12px 14px;
+  border: 1px solid #f0e6dd;
+  border-radius: 14px;
+  background: #fffaf6;
+  transition: 0.2s ease;
+}
+
+.taskItem.done {
+  background: #eef7f0;
+  border-color: #cfe6d6;
+}
+
+.taskItem.done .taskTitle {
+  text-decoration: line-through;
+  color: #7d8f83;
+}
+
+.taskCheck {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid #b88c6b;
+  background: #fff;
+  cursor: pointer;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 15px;
+  padding: 0;
+  margin-top: 2px;
+}
+
+.taskCheck:hover {
+  background: #f6e7d8;
+}
+
+.taskItem.done .taskCheck {
+  background: #6fae83;
+  border-color: #6fae83;
+}
+
+.taskItem.done .taskCheck:hover {
+  background: #5d9a71;
+}
+
+.taskBody {
+  flex: 1;
+  min-width: 0;
+}
+
+.taskTitle {
+  font-weight: 600;
+  color: #5a4a42;
+}
+
+.taskDetail {
+  font-size: 13px;
+  color: #8a7a70;
+  margin-top: 3px;
+  line-height: 1.5;
+}
+
+.taskActions {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.taskActions button {
+  padding: 6px 10px;
+  font-size: 12px;
+}
+
+.statusPill {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.statusPill.todo {
+  background: #f6e7d8;
+  color: #8a5a3a;
+}
+
+.statusPill.done {
+  background: #dff0e4;
+  color: #2f6b45;
+}
+
+.statusPill.pending {
+  background: #f6e7d8;
+  color: #8a5a3a;
+}
+
+.statusPill.confirmed {
+  background: #dff0e4;
+  color: #2f6b45;
+}
+
+.statusPill.cancelled {
+  background: #f3dede;
+  color: #8a3a3a;
+}
+
+/* Task editor rows inside the "new plan" modal and the inline "add task" form */
+.taskRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  padding: 12px;
+  border: 1px dashed #e5d5c5;
+  border-radius: 12px;
+  background: #fffaf6;
+}
+
+.taskRow .full {
+  grid-column: 1 / -1;
+}
+
+.taskRow input,
+.taskRow select,
+.taskRow textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #e5d5c5;
+  font-size: 13px;
+  box-sizing: border-box;
+  background: #fff;
+}
+
+.taskRow textarea {
+  min-height: 60px;
+  resize: vertical;
+}
+
+.taskRowHead {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: #8a7a70;
+  font-weight: 600;
+}
+
+.inlineForm {
+  display: grid;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.linkBtn {
+  background: none;
+  border: none;
+  color: #b88c6b;
+  cursor: pointer;
+  font-weight: 600;
+  padding: 4px 6px;
+}
+
+.linkBtn:hover {
+  text-decoration: underline;
+}
+
+.dangerBtn {
+  background: #c97c7c;
+  color: #fff;
+}
+
+.dangerBtn:hover {
+  background: #b65f5f;
+}
+
+.ghostBtn {
+  background: #f0e6dd;
+  color: #5a4a42;
+}
+
+.ghostBtn:hover {
+  background: #e5d5c5;
+}
+
+.successBtn {
+  background: #6fae83;
+  color: #fff;
+}
+
+.successBtn:hover {
+  background: #5d9a71;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 40px 20px;
+  color: #8a7a70;
+  background: #fff;
+  border-radius: 18px;
+  line-height: 1.6;
+}
+
+.filterTabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.filterTabs button {
+  background: #fff;
+  color: #5a4a42;
+  border: 1px solid #e5d5c5;
+  font-weight: 600;
+  padding: 8px 14px;
+}
+
+.filterTabs button.active {
+  background: #b88c6b;
+  color: #fff;
+  border-color: #b88c6b;
+}
+
+.allDone {
+  margin-top: 12px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: #dff0e4;
+  color: #2f6b45;
+  font-weight: 600;
+  text-align: center;
+}
+
+.modalBox.wide {
+  max-width: 720px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+/* Patient-facing page wrapper */
+.patientPage {
+  max-width: 900px;
+  margin: 150px auto 80px; /* clears the fixed navbar */
+  padding: 0 20px;
+}
+
+.patientPage h1 {
+  color: #5a4a42;
+  margin: 0 0 6px;
+}
+
+.patientPage .subtitle {
+  color: #8a7a70;
+  margin: 0 0 24px;
+}

@@ -13,6 +13,8 @@ A full-stack web application for running a physiotherapy clinic: patients, thera
 
 ## Features
 
+- **Therapy plans (core feature):** a therapist writes a therapy for a patient as a list of tasks (exercises with sets, reps, frequency and instructions). The patient logs in, sees the plan on *My Therapy* and ticks each task **to do / done**; the therapist follows the progress.
+- **Appointments:** patients book a slot with a therapist (opening hours enforced, no double booking); therapists confirm or cancel.
 - **Authentication and roles:** register and log in with JWT access and refresh tokens and bcrypt-hashed passwords. Role-based access (`patient` / `therapist`) is enforced in Express middleware and in React `ProtectedRoute` / `RoleRoute` components.
 - **Clinic management (CRUD):** patients, therapists, appointments, sessions, treatments, treatment plans, exercises, exercise plans, clinical assessments and equipment.
 - **Payments:** Stripe Checkout with webhook handling, plus a payment history.
@@ -47,12 +49,13 @@ physio-center/
 | Auth (register / login / refresh) | `/api/auth` |
 | Patients | `/api/patients` |
 | Therapists | `/api/therapists` |
-| Appointments | `/api/appointments` |
 | Sessions | `/api/sessions` |
 | Treatments / Treatment plans | `/api/treatments`, `/api/treatment-plans` |
 | Exercises / Exercise plans | `/api/exercises`, `/api/exercise-plans` |
 | Clinical assessments | `/api/clinicalAssessment` |
 | Payments / Stripe | `/api/payments`, `/api/stripe` |
+| Therapy plans + tasks (therapist writes, patient ticks done) | `/api/therapy`, `/api/therapy/mine`, `/api/therapy/tasks/:id/status` |
+| Appointments (book, list, confirm / cancel) | `/api/appointments`, `/api/appointments/therapists` |
 
 ## Getting started
 
@@ -87,6 +90,16 @@ npm install
 npm start
 ```
 The app runs at http://localhost:3001 and proxies API calls to http://localhost:3000.
+
+### 3. Demo accounts (optional)
+To try the therapy flow without creating accounts by hand:
+```bash
+cd backend
+node scripts/seed-demo.js
+```
+This creates a therapist and a patient login (credentials are listed at the top of that script) plus three sample exercises. Log in as the therapist, open **Therapy Plans** and write a plan for the demo patient; then log in as the patient and tick the tasks on **My Therapy**.
+
+Public registration always creates a *patient* account. A therapist account can only be created by a logged-in therapist, or by anyone while the clinic has no therapist yet (first setup).
 
 ## What I learned
 

@@ -12,9 +12,7 @@ const createSession = async (req, res) => {
 
 const getSessions = async (req, res) => {
   try {
-    const sessions = await Session.findAll({
-      include: Therapist,
-    });
+    const sessions = await Session.findAll({ order: [["date", "DESC"]] });
     res.json(sessions);
   } catch (err) {
     res.status(500).send(err.message);

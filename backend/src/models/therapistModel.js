@@ -18,6 +18,11 @@ const Therapist = sequelize.define(
     specialization: {
       type: DataTypes.STRING,
     },
+    // Login account (User) of this therapist, if they have one.
+    user_id: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
   },
   {
     tableName: "Therapist",

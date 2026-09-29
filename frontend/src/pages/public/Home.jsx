@@ -13,7 +13,6 @@ import Footer from "../../components/Footer";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
-import Appointment from "../admin/Appointment";
 
 import "swiper/css";
 import "swiper/css/navigation";

@@ -43,6 +43,12 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.TEXT,
       allowNull: true,
     },
+
+    // Login account (User) this patient record belongs to, if the patient has one.
+    user_id: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
   });
 
   return Patient;

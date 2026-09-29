@@ -5,9 +5,10 @@ const {
   createCheckoutSession,
   stripeWebhook,
 } = require("../controllers/stripeController");
+const auth = require("../middleware/authMiddleware");
 
-// checkout route
-router.post("/create-checkout-session", createCheckoutSession);
+// checkout route (logged-in users only; the webhook below must stay public)
+router.post("/create-checkout-session", auth, createCheckoutSession);
 
 // webhook route
 router.post(

@@ -1,16 +1,47 @@
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { User } = require("../models");
+const { getPatientProfile, getTherapistProfile } = require("../utils/profiles");
 
+// Who is allowed to create a therapist account:
+//  - a logged-in therapist (Authorization header), or
+//  - anyone, only while the clinic has no therapist yet (first setup).
+const canCreateTherapist = async (req) => {
+  const token = req.headers.authorization?.split(" ")[1];
+  if (token) {
+    try {
+      const decoded = jwt.verify(token, process.env.ACCESS_SECRET);
+      if (decoded.role === "therapist") return true;
+    } catch (e) {
+      /* fall through */
+    }
+  }
+  return (await User.count({ where: { role: "therapist" } })) === 0;
+};
 
 const register = async (req, res) => {
   try {
-    const { name, email, password, role } = req.body;
+    const { name, email, password } = req.body;
+
+    if (!name || !email || !password) {
+      return res.status(400).json({ message: "Name, email and password are required" });
+    }
+    if (password.length < 6) {
+      return res.status(400).json({ message: "Password must be at least 6 characters" });
+    }
 
     const existingUser = await User.findOne({ where: { email } });
 
     if (existingUser) {
       return res.status(400).json({ message: "User already exists" });
+    }
+
+    let role = "patient";
+    if (req.body.role === "therapist") {
+      if (!(await canCreateTherapist(req))) {
+        return res.status(403).json({ message: "Only a therapist can create therapist accounts" });
+      }
+      role = "therapist";
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -19,8 +50,17 @@ const register = async (req, res) => {
       name,
       email,
       password: hashedPassword,
-      role: role || "patient",
+      role,
     });
+
+    // Create the matching clinic record so the account shows up in the
+    // Patients / Therapists lists and can receive therapy plans.
+    try {
+      if (role === "patient") await getPatientProfile(newUser);
+      else await getTherapistProfile(newUser);
+    } catch (profileErr) {
+      console.error("Profile creation failed:", profileErr.message);
+    }
 
     return res.status(201).json({
       user: {

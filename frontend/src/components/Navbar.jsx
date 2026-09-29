@@ -4,7 +4,12 @@ import logo from "../assets/physio-logo.png";
 
 export default function Navbar() {
   const navigate = useNavigate();
-  const user = JSON.parse(localStorage.getItem("user"));
+  let user = null;
+  try {
+    user = JSON.parse(localStorage.getItem("user"));
+  } catch (e) {
+    user = null;
+  }
 
   const handleLogout = () => {
     localStorage.removeItem("token");
@@ -14,17 +19,22 @@ export default function Navbar() {
 
   return (
     <nav className="navbar">
-
       <div className="logo">
         <img src={logo} alt="Physio Logo" />
       </div>
 
       <ul className="navLinks">
-
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink to="/services">Services</NavLink></li>
         <li><NavLink to="/about">About</NavLink></li>
         <li><NavLink to="/therapist">Therapists</NavLink></li>
+
+        {user?.role === "patient" && (
+          <>
+            <li><NavLink to="/my-therapy">My Therapy</NavLink></li>
+            <li><NavLink to="/appointments">Appointments</NavLink></li>
+          </>
+        )}
 
         {user?.role === "therapist" && (
           <li>
@@ -34,16 +44,20 @@ export default function Navbar() {
           </li>
         )}
 
-        {user && (
+        {user ? (
           <li>
             <span className="logout-link" onClick={handleLogout}>
               Logout
             </span>
           </li>
+        ) : (
+          <li>
+            <span className="nav-btn" onClick={() => navigate("/login")}>
+              Login
+            </span>
+          </li>
         )}
-
       </ul>
-
     </nav>
   );
 }
